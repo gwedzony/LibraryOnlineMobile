@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
+             x:Class="MauiApp1.MainPage">
+<ContentPage.BindingContext>
+    <viewModel:MainPageViewModel/>
+</ContentPage.BindingContext>
+    <CollectionView ItemsSource="{Binding MobileBookPreviews}" >
+        <CollectionView.ItemTemplate >
+            <DataTemplate >
+                <Grid>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="15"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="15"></RowDefinition>
+                        <RowDefinition Height="15"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding MobileBookPreviewId}"  
+                           HorizontalTextAlignment="Center"
+                           FontSize="16" 
+                           FontAttributes="Bold"
+                           Grid.Row="0"
+                           Grid.Column="0" />
+                        <Image Grid.Row="1"
+                            Grid.Column="0">
+                            <Image.Source>
+                            <UriImageSource Uri="{Binding SmallCoverImg}"></UriImageSource>
+                               </Image.Source>
+                            </Image>
+                        <Label Text="{Binding BookTitle}"  
+                               HorizontalTextAlignment="Center"
+                               FontSize="16" 
+                               FontAttributes="Bold" 
+                               Grid.Row="2" 
+                               Grid.Column="0" />
+                        <Label Text="{Binding BookDescription}"
+                               HorizontalTextAlignment="Center"
+                               Grid.Row="3"
+                               Grid.Column="0" 
+                               FontSize="16"
+                               FontAttributes="Bold"/>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+</ContentPage>

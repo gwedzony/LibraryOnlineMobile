@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileAPI", "MobileAPI\Mobi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Database\Database.csproj", "{27D8A6A0-F31A-4219-82A8-5F35CDF83144}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileAppMAUI", "MobileAppMAUI\MobileAppMAUI.csproj", "{1B211084-948A-47B0-B2C7-6828C9213399}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiApp1", "MauiApp1\MauiApp1.csproj", "{89091893-A158-4307-B71F-E73B92D4151E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,10 @@ Global
 		{27D8A6A0-F31A-4219-82A8-5F35CDF83144}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27D8A6A0-F31A-4219-82A8-5F35CDF83144}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27D8A6A0-F31A-4219-82A8-5F35CDF83144}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B211084-948A-47B0-B2C7-6828C9213399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B211084-948A-47B0-B2C7-6828C9213399}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B211084-948A-47B0-B2C7-6828C9213399}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{1B211084-948A-47B0-B2C7-6828C9213399}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B211084-948A-47B0-B2C7-6828C9213399}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B211084-948A-47B0-B2C7-6828C9213399}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{89091893-A158-4307-B71F-E73B92D4151E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89091893-A158-4307-B71F-E73B92D4151E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89091893-A158-4307-B71F-E73B92D4151E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89091893-A158-4307-B71F-E73B92D4151E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
