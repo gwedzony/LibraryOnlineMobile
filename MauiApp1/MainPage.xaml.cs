@@ -1,30 +1,29 @@
-﻿using MauiApp1.ViewModel;
+﻿using MauiApp1.Pages;
+using MauiApp1.ViewModel;
 using Microsoft.Maui.Handlers;
+
 
 
 namespace MauiApp1;
 
 public partial class MainPage : ContentPage
 {
-    int count = 0;
+   
     
     public MainPage()
     {
         InitializeComponent();
       
     }
+    
 
-   
-
-    private void OnCounterClicked(object sender, EventArgs e)
+    private async void OnDetailsClicked(object? sender, EventArgs e)
     {
-        /*count++;
+        await Navigation.PushAsync(new DetailsPage());
+    }
 
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
-
-        SemanticScreenReader.Announce(CounterBtn.Text);*/
+    private async void OnHomeClicked(object? sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MainPage());
     }
 }
