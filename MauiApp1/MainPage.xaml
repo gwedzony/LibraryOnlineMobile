@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:md="clr-namespace:Material;assembly=Material.Components.Maui"
              xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
-             
+            
              x:Class="MauiApp1.MainPage">
     
     
@@ -47,13 +47,16 @@
                                 StrokeThickness="2"
                                 WidthRequest="300">
                             <Grid RowDefinitions=".2*,.6*,2*">
+                             
                                 <Frame Grid.RowSpan="3" CornerRadius="20" HasShadow="False" Padding="0">
                                     <Image Aspect="AspectFill" 
                                            Source="{Binding SmallCoverImg}"
                                            HorizontalOptions="FillAndExpand"
                                            VerticalOptions="FillAndExpand"/>
                                   
+                                    
                                 </Frame>
+                              
                                 <RoundRectangle Grid.RowSpan="3" 
                                                 CornerRadius="30" 
                                                 HeightRequest="300"
@@ -67,12 +70,15 @@
                                         </LinearGradientBrush>
                                     </RoundRectangle.Fill>
                                 </RoundRectangle>
-                                
-                                <VerticalStackLayout Grid.Row="2" Margin="20,0,0,0">
-                                    <Label Text="{Binding BookTitle}" TextColor="White"/>
-                                    <Label FontSize="Large" Text="{Binding BookDescription}" TextColor="White"/>
+                               
+                                <VerticalStackLayout Grid.Row="2" Margin="20,0,0,15" VerticalOptions="End">
+                                    <Label FontSize="19" Text="{Binding BookTitle}" 
+                                           TextColor="White" VerticalOptions="End" 
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center"/>
                                     
                                 </VerticalStackLayout>
+                                
                                 
                                
                                 
@@ -105,69 +111,44 @@
             
         </IndicatorView>
         
-        <Label Grid.Row="4" Margin="25,10,25,10"
-               FontSize="16"
-               Text="Polecane"
-               TextColor="White"
-               VerticalOptions="Center"/>
-        
-        <Grid Grid.Row="5"
-              Margin="15,0,15,10"
-              HeightRequest="75"
-              VerticalOptions="End">
-            <Border Background="#311B45"
-                    Stroke="#6e557c"
-                    StrokeShape="RoundRectangle 30,30,30,30"
-                    StrokeThickness="2">
-                <Grid ColumnDefinitions="*,*,*,*"
-                      RowDefinitions="*,*"
-                      RowSpacing="3">
-                    <Label Grid.Row="1"
-                           FontSize="13"
-                           HorizontalOptions="Center"
-                           Text="Home 1"
-                           TextColor="White"
-                           Margin="0,0,0,-4"/>
-                    <Label Grid.Column="1"
-                           Grid.Row="1"
-                           FontSize="13"
-                           HorizontalOptions="Center"
-                           Text="Home 2"
-                           TextColor="White"
-                           Margin="0,0,0,-4"/>
-                    <Label Grid.Row="1"
-                           Grid.Column="2"
-                           FontSize="13"
-                           HorizontalOptions="Center"
-                           Text="Home 3"
-                           TextColor="White"
-                           Margin="0,0,0,-4"/>
-                    <Label Grid.Row="1"
-                           Grid.Column="3"
-                           FontSize="13"
-                           HorizontalOptions="Center"
-                           Text="Home 4"
-                           TextColor="White"
-                           Margin="0,0,0,-4"/>
-                    <Button WidthRequest="10" HeightRequest="2"
-                            Background="White"
-                            ></Button>
-                    <Button WidthRequest="10" HeightRequest="2"
-                           Background="White" Grid.Column="1" 
-                    ></Button>
-                    <Button WidthRequest="10" HeightRequest="2"
-                            Background="White" Grid.Column="2" 
-                    ></Button>
-                    <Button WidthRequest="10" HeightRequest="2"
-                            Background="White" Grid.Column="3" 
-                    ></Button>
-                    
-                    
-                   
-                    
+        <Grid Grid.Row="5" Margin="15,0,15,10" HeightRequest="75" VerticalOptions="End">
+            <Border Background="#311B45" Stroke="#6e557c" StrokeShape="RoundRectangle 30,30,30,30" StrokeThickness="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/> 
+                        <RowDefinition Height="Auto"/> 
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/> 
+                        <ColumnDefinition Width="*"/> 
+                        <ColumnDefinition Width="*"/> 
+                    </Grid.ColumnDefinitions>
+            
+                    <!-- Przyciski -->
+                    <Button Grid.Row="0" Grid.Column="0"  HeightRequest="5" WidthRequest="5"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center"
+                            Clicked="OnHomeClicked">
+                       
+                    </Button>
+                    <Button Grid.Row="0" Grid.Column="1" HeightRequest="5" WidthRequest="5"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                           Clicked="OnDetailsClicked" >
+                       
+                    </Button>
+                    <Button Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="5" WidthRequest="5"> 
+                       
+                    </Button>
+            
+                    <!-- Napisy pod przyciskami -->
+                    <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" Text="Home" TextColor="White"/>
+                    <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" Text="Book Details" TextColor="White"/>
+                    <Label Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" Text="Przycisk 3" TextColor="White"/>
                 </Grid>
             </Border>
         </Grid>
+
         
         
         
