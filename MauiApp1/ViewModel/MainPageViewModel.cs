@@ -1,13 +1,16 @@
 using System.Collections.ObjectModel;
+using MauiApp1.Model;
 using MauiApp1.Model.DTO;
+using MauiApp1.Services;
 
 namespace MauiApp1.ViewModel;
 
 public class MainPageViewModel: BaseViewModel
 {
-    private ObservableCollection<MobileBookPreviewDTO> _mobileBooksPreviews;
-
-    public ObservableCollection<MobileBookPreviewDTO> MobileBookPreviews
+    private ObservableCollection<MobileBookPreview> _mobileBooksPreviews;
+    
+    private readonly MobileBooksPreviewsService _service;
+    public ObservableCollection<MobileBookPreview> MobileBookPreviews
     {
         get => _mobileBooksPreviews;
         set
@@ -23,23 +26,17 @@ public class MainPageViewModel: BaseViewModel
 
     public MainPageViewModel()
     {
-        _mobileBooksPreviews = new ObservableCollection<MobileBookPreviewDTO>();
-        AddMockData();
+        _service= new MobileBooksPreviewsService();
 
     }
 
-    private void AddMockData()
+    private async Task GetPreviewsFromAPI()
     {
-        for (int i = 0; i < 10; i++)
+        var response = await _service.GetMobileBooksPreviews();
+        if (response != null)
         {
-            _mobileBooksPreviews.Add(new MobileBookPreviewDTO
-            {
-                MobileBookPreviewId = i,
-                BookTitle = $"Tytul ksiazki - {i}",
-                BookDescription = $"Krotki opis ksiazki {i}",
-                SmallCoverImg = "https://aka.ms/campus.jpg"
-                
-            });
+            _mobileBooksPreviews = new ObservableCollection<MobileBookPreview>();
+           
         }
     }
     

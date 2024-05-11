@@ -1,4 +1,4 @@
-using MobileAPI.Model;
+using Database.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddDbContext<IdentifierContext>();
+builder.Services.AddDbContext<DatabaseContext>();
 
 
 var app = builder.Build();
