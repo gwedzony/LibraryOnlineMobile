@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Material.Components.Maui.Extensions;
 
 namespace MauiApp1;
 
@@ -17,7 +18,10 @@ public static class MauiProgram
 
 #if DEBUG
         builder.Logging.AddDebug();
+        
 #endif
+        builder.
+            UseMaterialComponents();
 
         return builder.Build();
     }

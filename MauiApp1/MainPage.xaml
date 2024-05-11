@@ -1,49 +1,198 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:md="clr-namespace:Material;assembly=Material.Components.Maui"
              xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
+             
              x:Class="MauiApp1.MainPage">
-<ContentPage.BindingContext>
-    <viewModel:MainPageViewModel/>
-</ContentPage.BindingContext>
-    <CollectionView ItemsSource="{Binding MobileBookPreviews}" >
-        <CollectionView.ItemTemplate >
-            <DataTemplate >
-                <Grid>
-                    <Grid.RowDefinitions >
-                        <RowDefinition Height="15"></RowDefinition>
-                        <RowDefinition Height="*"></RowDefinition>
-                        <RowDefinition Height="15"></RowDefinition>
-                        <RowDefinition Height="15"></RowDefinition>
-                        <RowDefinition Height="30"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Label Text="{Binding MobileBookPreviewId}"  
-                           HorizontalTextAlignment="Center"
-                           FontSize="16" 
-                           FontAttributes="Bold"
-                           Grid.Row="0"
-                           Grid.Column="0" />
-                        <Image Grid.Row="1"
-                            Grid.Column="0">
-                            <Image.Source>
-                            <UriImageSource Uri="{Binding SmallCoverImg}"></UriImageSource>
-                               </Image.Source>
-                            </Image>
-                        <Label Text="{Binding BookTitle}"  
-                               HorizontalTextAlignment="Center"
-                               FontSize="16" 
-                               FontAttributes="Bold" 
-                               Grid.Row="2" 
-                               Grid.Column="0" />
-                        <Label Text="{Binding BookDescription}"
-                               HorizontalTextAlignment="Center"
-                               Grid.Row="3"
-                               Grid.Column="0" 
-                               FontSize="16"
-                               FontAttributes="Bold"/>
+    
+    
+    <ContentPage.BindingContext>
+        <viewModel:MainPageViewModel/>
+    </ContentPage.BindingContext>
+   
+    <Grid BackgroundColor="#0D0118" RowDefinitions=".05*,.1*,.45*,.05*,.05*">
+        <Label FontSize="16" 
+               HorizontalOptions="Center" 
+               Text="Biblioteka MKGW"
+               TextColor="White" 
+               VerticalOptions="Center"/>
+        
+        <Grid Grid.Row="1" Margin="25,10,25,10">
+                <RoundRectangle CornerRadius="25" Fill="#311B45" HeightRequest="45"></RoundRectangle>
+                <SearchBar CancelButtonColor="White" Placeholder="Search..." PlaceholderColor="#AC9DB9"
+                           TextColor="White"
+                           VerticalOptions="Center"></SearchBar>
+            
+            </Grid>
+        
+        <CarouselView IndicatorView="IndicatorView" Grid.Row="2" 
+                      ItemsSource="{Binding MobileBookPreviews}"
+                      PeekAreaInsets="30" Margin="0,-100,0,0">
+            <CarouselView.ItemsLayout>
+               <LinearItemsLayout ItemSpacing="0"
+                                  Orientation="Horizontal"
+                                  SnapPointsAlignment="Center"
+                                  SnapPointsType="MandatorySingle"></LinearItemsLayout>
+            </CarouselView.ItemsLayout>
+            
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <Border Grid.RowSpan="3" 
+                                BackgroundColor="#311b45"
+                                HeightRequest="300"
+                                Stroke="#6e557c"
+                                StrokeShape="RoundRectangle 30,30,30,30"
+                                StrokeThickness="2"
+                                WidthRequest="300">
+                            <Grid RowDefinitions=".2*,.6*,2*">
+                                <Frame Grid.RowSpan="3" CornerRadius="20" HasShadow="False" Padding="0">
+                                    <Image Aspect="AspectFill" 
+                                           Source="{Binding SmallCoverImg}"
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="FillAndExpand"/>
+                                  
+                                </Frame>
+                                <RoundRectangle Grid.RowSpan="3" 
+                                                CornerRadius="30" 
+                                                HeightRequest="300"
+                                                WidthRequest="300"
+                                                Opacity=".7">
+                                    <RoundRectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                                            <GradientStop Offset="1" Color="#030005"></GradientStop>
+                                            
+                                        </LinearGradientBrush>
+                                    </RoundRectangle.Fill>
+                                </RoundRectangle>
+                                
+                                <VerticalStackLayout Grid.Row="2" Margin="20,0,0,0">
+                                    <Label Text="{Binding BookTitle}" TextColor="White"/>
+                                    <Label FontSize="Large" Text="{Binding BookDescription}" TextColor="White"/>
+                                    
+                                </VerticalStackLayout>
+                                
+                               
+                                
+                            </Grid>
+                           
+                            <Border.Shadow>
+                                <Shadow Brush="#C283FD"
+                                        Opacity=".2"
+                                        Radius="55"
+                                        Offset="0,0"/>
+                            </Border.Shadow>
+                        </Border>
+                          
+                       
+                        
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+
+        </CarouselView>
+        
+        <IndicatorView x:Name="IndicatorView"
+                       Grid.Row="3"
+                       HorizontalOptions="Center"
+                       IndicatorColor="#616161"
+                       IndicatorSize="5"
+                       SelectedIndicatorColor="White"
+                       VerticalOptions="Start"
+                       Margin="0,-40,0,0">
+            
+        </IndicatorView>
+        
+        <Label Grid.Row="4" Margin="25,10,25,10"
+               FontSize="16"
+               Text="Polecane"
+               TextColor="White"
+               VerticalOptions="Center"/>
+        
+        <Grid Grid.Row="5"
+              Margin="15,0,15,10"
+              HeightRequest="75"
+              VerticalOptions="End">
+            <Border Background="#311B45"
+                    Stroke="#6e557c"
+                    StrokeShape="RoundRectangle 30,30,30,30"
+                    StrokeThickness="2">
+                <Grid ColumnDefinitions="*,*,*,*"
+                      RowDefinitions="*,*"
+                      RowSpacing="3">
+                    <Label Grid.Row="1"
+                           FontSize="13"
+                           HorizontalOptions="Center"
+                           Text="Home 1"
+                           TextColor="White"
+                           Margin="0,0,0,-4"/>
+                    <Label Grid.Column="1"
+                           Grid.Row="1"
+                           FontSize="13"
+                           HorizontalOptions="Center"
+                           Text="Home 2"
+                           TextColor="White"
+                           Margin="0,0,0,-4"/>
+                    <Label Grid.Row="1"
+                           Grid.Column="2"
+                           FontSize="13"
+                           HorizontalOptions="Center"
+                           Text="Home 3"
+                           TextColor="White"
+                           Margin="0,0,0,-4"/>
+                    <Label Grid.Row="1"
+                           Grid.Column="3"
+                           FontSize="13"
+                           HorizontalOptions="Center"
+                           Text="Home 4"
+                           TextColor="White"
+                           Margin="0,0,0,-4"/>
+                    <Button WidthRequest="10" HeightRequest="2"
+                            Background="White"
+                            ></Button>
+                    <Button WidthRequest="10" HeightRequest="2"
+                           Background="White" Grid.Column="1" 
+                    ></Button>
+                    <Button WidthRequest="10" HeightRequest="2"
+                            Background="White" Grid.Column="2" 
+                    ></Button>
+                    <Button WidthRequest="10" HeightRequest="2"
+                            Background="White" Grid.Column="3" 
+                    ></Button>
+                    
+                    
+                   
+                    
                 </Grid>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+            </Border>
+        </Grid>
+        
+        
+        
+        <!-- <CollectionView Grid.Row="5" ItemsSource="{Binding MobileBookPreviews}" Margin="0,-100,0,0"> -->
+        <!--     <CollectionView.ItemsLayout> -->
+        <!--         <LinearItemsLayout ItemSpacing="25" Orientation="Horizontal"></LinearItemsLayout> -->
+        <!--     </CollectionView.ItemsLayout> -->
+        <!--      -->
+        <!--     <CollectionView.ItemTemplate> -->
+        <!--         <DataTemplate> -->
+        <!--             <Grid HeightRequest="200" WidthRequest="200"> -->
+        <!--                 <Border HeightRequest="200" HorizontalOptions="Center" Stroke="#6E557C" -->
+        <!--                         StrokeShape="RoundRectangle 20,20,20,20" -->
+        <!--                         StrokeThickness="2" -->
+        <!--                         WidthRequest="200"> -->
+        <!--                     <Image Aspect="AspectFill" Source="{Binding SmallCoverImg}"></Image> -->
+        <!--                 </Border> -->
+        <!--             </Grid> -->
+        <!--         </DataTemplate> -->
+        <!--     </CollectionView.ItemTemplate> -->
+        <!-- </CollectionView> -->
+        
+        
+        
+    </Grid>
+   
 
 </ContentPage>

@@ -1,4 +1,5 @@
 ﻿using MauiApp1.ViewModel;
+using Microsoft.Maui.Handlers;
 
 
 namespace MauiApp1;
@@ -10,7 +11,10 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+      
     }
+
+   
 
     private void OnCounterClicked(object sender, EventArgs e)
     {
