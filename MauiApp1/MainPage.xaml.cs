@@ -26,4 +26,9 @@ public partial class MainPage : ContentPage
     {
         await Navigation.PushAsync(new MainPage());
     }
+
+    private async void OnViewAllClicked(object? sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ViewAll());
+    }
 }

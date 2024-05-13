@@ -128,7 +128,7 @@
                     <Button Grid.Row="0" Grid.Column="0"  HeightRequest="5" WidthRequest="5"
                             HorizontalOptions="Center" 
                             VerticalOptions="Center"
-                            Clicked="OnHomeClicked">
+                            Clicked="OnViewAllClicked">
                        
                     </Button>
                     <Button Grid.Row="0" Grid.Column="1" HeightRequest="5" WidthRequest="5"
@@ -137,14 +137,17 @@
                            Clicked="OnDetailsClicked" >
                        
                     </Button>
-                    <Button Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="5" WidthRequest="5"> 
+                    <Button Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" 
+                            VerticalOptions="Center" HeightRequest="5"
+                            WidthRequest="5"
+                            Clicked="OnViewAllClicked"> 
                        
                     </Button>
             
                     <!-- Napisy pod przyciskami -->
                     <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" Text="Home" TextColor="White"/>
                     <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" Text="Book Details" TextColor="White"/>
-                    <Label Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" Text="Przycisk 3" TextColor="White"/>
+                    <Label Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" Text="ViewAll" TextColor="White"/>
                 </Grid>
             </Border>
         </Grid>
