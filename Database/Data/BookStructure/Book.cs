@@ -41,7 +41,6 @@ public class Book
     public int? LatestMobileBooksCardId { get; set; }
     public LatestMobileBooksCard? LatestMobileBooksCard { get; set; }
 
-    public int? DetailBookMobilePageId { get; set; }
     public DetailBookMobilePage? DetailBookMobilePages { get; set; }
     #endregion
 

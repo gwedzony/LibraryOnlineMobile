@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Database.Data.BookStructure;
 
 
@@ -10,6 +11,8 @@ public class DetailBookMobilePage
     public int Id { get; set; }
     
     // foreignkeys
+    public int BookId { get; set; }
+    [ForeignKey("BookId")]
     public Book? Book { get; set; }
     
     

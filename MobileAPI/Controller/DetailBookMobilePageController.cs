@@ -1,3 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Database.Context;
@@ -7,23 +12,23 @@ namespace MobileAPI.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DetailBookController : ControllerBase
+    public class DetailBookMobilePageController : ControllerBase
     {
         private readonly DatabaseContext _context;
 
-        public DetailBookController(DatabaseContext context)
+        public DetailBookMobilePageController(DatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: api/DetailBook
+        // GET: api/DetailBookMobilePage
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DetailBookMobilePage>>> GetDetailBookMobilePages()
         {
             return await _context.DetailBookMobilePages.ToListAsync();
         }
 
-        // GET: api/DetailBook/5
+        // GET: api/DetailBookMobilePage/5
         [HttpGet("{id}")]
         public async Task<ActionResult<DetailBookMobilePage>> GetDetailBookMobilePage(int id)
         {
@@ -37,7 +42,7 @@ namespace MobileAPI.Controller
             return detailBookMobilePage;
         }
 
-        // PUT: api/DetailBook/5
+        // PUT: api/DetailBookMobilePage/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDetailBookMobilePage(int id, DetailBookMobilePage detailBookMobilePage)
@@ -68,7 +73,7 @@ namespace MobileAPI.Controller
             return NoContent();
         }
 
-        // POST: api/DetailBook
+        // POST: api/DetailBookMobilePage
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<DetailBookMobilePage>> PostDetailBookMobilePage(DetailBookMobilePage detailBookMobilePage)
@@ -79,7 +84,7 @@ namespace MobileAPI.Controller
             return CreatedAtAction("GetDetailBookMobilePage", new { id = detailBookMobilePage.Id }, detailBookMobilePage);
         }
 
-        // DELETE: api/DetailBook/5
+        // DELETE: api/DetailBookMobilePage/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDetailBookMobilePage(int id)
         {

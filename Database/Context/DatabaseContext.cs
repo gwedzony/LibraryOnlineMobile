@@ -16,6 +16,13 @@ public class DatabaseContext : DbContext
     public DbSet<LatestMobileBooksAuthorCard> LatestMobileBooksAuthorCard { get; set; }
     public DbSet<RandomMobileBooksCollectionCard> RandomMobileBooksCollectionCards{ get; set; }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<DetailBookMobilePage>()
+            .HasOne(d => d.Book)
+            .WithOne(b => b.DetailBookMobilePages)
+            .HasForeignKey<DetailBookMobilePage>(d => d.BookId);
+    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

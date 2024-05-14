@@ -9,5 +9,6 @@ public class LatestMobileBooksAuthorCard
     public int Id { get; set; }
     
     // foreignkeys
+    
     public Author? Book { get; set; }
 }
