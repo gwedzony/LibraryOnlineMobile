@@ -14,7 +14,5 @@ public class MobileBookPreview
     [Display(Name = "Link do zdjecia okładki")]
     public string? SmallCoverImg{ get; set; }
     
-    [ForeignKey("Books")]
-    public int? BookId { get; set; }
     public Book? Book { get; set; }
 }

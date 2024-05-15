@@ -38,9 +38,8 @@ public class Book
     #endregion
     
     #region OneToOne
-    public int? LatestMobileBooksCardId { get; set; }
     public LatestMobileBooksCard? LatestMobileBooksCard { get; set; }
-
+    
     public DetailBookMobilePage? DetailBookMobilePages { get; set; }
     #endregion
 

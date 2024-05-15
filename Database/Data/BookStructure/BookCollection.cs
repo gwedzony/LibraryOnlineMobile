@@ -1,3 +1,5 @@
+using Database.Data.MobileApp;
+
 namespace Database.Data.BookStructure;
 
 public class BookCollection
@@ -9,6 +11,8 @@ public class BookCollection
 
     public Book Book { get; set; } = null;
     public Collection Collection { get; set; } = null;
+
+    public RandomMobileBooksCollectionCard? RandomMobileBooksCollectionCard { get; set; }
     
     
 }

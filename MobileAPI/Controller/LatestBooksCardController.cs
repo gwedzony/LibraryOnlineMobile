@@ -20,7 +20,9 @@ namespace MobileAPI.Controller
         [HttpGet]
         public async Task<ActionResult<IEnumerable<LatestMobileBooksCard>>> GetLatestMobileBooksCard()
         {
-            return await _context.LatestMobileBooksCard.ToListAsync();
+            return await _context.LatestMobileBooksCard
+                .Include(b=>b.Book)
+                .ToListAsync();
         }
 
         // GET: api/LatestBooksCard/5
