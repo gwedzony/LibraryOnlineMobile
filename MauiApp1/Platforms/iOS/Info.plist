@@ -11,7 +11,7 @@
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
-		<string>arm64</string>
+		<string>iphone-ipad-minimum-performance-a12</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

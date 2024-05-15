@@ -11,9 +11,7 @@ public class BookGenre
     [Required(ErrorMessage = "Nazwa gatunku jest wymagana")]
     [Display(Name = "Gatunek (np. Horror, Thriller)")]
     public required string Name{ get; set; }
-    
     // Foreign Keys
-
     public ICollection<Book> Books { get; } = new List<Book>();
 
    

@@ -1,4 +1,6 @@
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using Database.Data.MobileApp;
 using MauiApp1.Model;
 using MauiApp1.Model.DTO;
 using MauiApp1.Services;
@@ -27,24 +29,30 @@ public class MainPageViewModel: BaseViewModel
     public MainPageViewModel()
     {
         _service= new MobileBooksPreviewsService();
-        GetPreviewsFromAPI();
+        _mobileBooksPreviews = new ObservableCollection<MobileBookPreviewDTO>();
+        
+        GetPreviewsFromApi();
 
     }
 
-    private async Task GetPreviewsFromAPI()
+    private async Task GetPreviewsFromApi()
     {
-        _mobileBooksPreviews = new ObservableCollection<MobileBookPreviewDTO>();
-        for (int i = 0; i < 10; i++)
+        
+        List<LatestMobileBooksCard> list = await _service.GetMobileBooksPreviews();
+
+        
+        foreach (var item in list)
         {
-          _mobileBooksPreviews.Add(new MobileBookPreviewDTO()
+           
+            _mobileBooksPreviews.Add(new MobileBookPreviewDTO()
             {
-                MobileBookPreviewId = i,
-                SmallCoverImg = "https://visme.co/blog/wp-content/uploads/2021/06/fiction-book-cover-template-visme.jpg",
-                BookTitle = $"Another side of the MOON Part {i} ",
-                BookDescription = "The book description is the pitch to the reader about why they should buy your book." +
-                                  "When done right, it directly drives books sales."
+                MobileBookPreviewId = item.Id,
+                BookTitle = item.Book.Title,
+                BookDescription = item.Book.Description,
+                SmallCoverImg = item.Book.Image
             });
         }
+        
     }
     
 }
