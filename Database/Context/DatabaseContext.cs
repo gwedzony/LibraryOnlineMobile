@@ -1,11 +1,15 @@
 using Database.Data.BookStructure;
 using Database.Data.MobileApp;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Database.Context;
 
 public class DatabaseContext : DbContext
 {
+
+    protected readonly IConfiguration Configuration;
+    
     public DbSet<Book> Books { get; set; }
     public DbSet<Author> Authors { get; set; }
     public DbSet<Collection> Collections { get; set; }
@@ -16,6 +20,11 @@ public class DatabaseContext : DbContext
     public DbSet<LatestMobileBooksAuthorCard> LatestMobileBooksAuthorCard { get; set; }
     public DbSet<RandomMobileBooksCollectionCard> RandomMobileBooksCollectionCards{ get; set; }
 
+
+    public DatabaseContext(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<DetailBookMobilePage>()
@@ -55,6 +64,8 @@ public class DatabaseContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite(@"Data Source=/Users/grzesiek/RiderProjects/ProjektMobilne/Database/identifier.sqlite");
+        //optionsBuilder.UseSqlite(@"Data Source=/Users/grzesiek/RiderProjects/ProjektMobilne/Database/identifier.sqlite");
+        var connectionString = Configuration.GetConnectionString("Default");
+        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
     }
 }
