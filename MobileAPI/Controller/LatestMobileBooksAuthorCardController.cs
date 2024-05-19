@@ -25,7 +25,9 @@ namespace MobileAPI.Controller
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MobileBooksAuthorCard>>> GetLatestMobileBooksAuthorCard()
         {
-            return await _context.MobileBooksAuthorCard.ToListAsync();
+            return await _context.MobileBooksAuthorCard
+                .Include(a =>a.Author)
+                .ToListAsync();
         }
 
         // GET: api/LatestMobileBooksAuthorCard/5

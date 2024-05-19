@@ -11,7 +11,7 @@ public class MainPageViewModel: BaseViewModel
 {
     private ObservableCollection<MobileBookPreviewDTO> _mobileBooksPreviews;
     
-    private readonly MobileBooksPreviewsService _service;
+    private readonly BooksService _service;
     public ObservableCollection<MobileBookPreviewDTO> MobileBookPreviews
     {
         get => _mobileBooksPreviews;
@@ -28,7 +28,7 @@ public class MainPageViewModel: BaseViewModel
 
     public MainPageViewModel()
     {
-        _service= new MobileBooksPreviewsService();
+        _service= new BooksService();
         _mobileBooksPreviews = new ObservableCollection<MobileBookPreviewDTO>();
         
         GetPreviewsFromApi();

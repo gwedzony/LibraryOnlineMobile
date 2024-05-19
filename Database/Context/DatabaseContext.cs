@@ -33,9 +33,9 @@ public class DatabaseContext() : DbContext
             .HasForeignKey<LatestMobileBooksCard>(l => l.BookId);
         
         modelBuilder.Entity<MobileBooksAuthorCard>()
-            .HasOne(l => l.Book)
+            .HasOne(l => l.Author)
             .WithOne(b => b.MobileBooksAuthorCard)
-            .HasForeignKey<MobileBooksAuthorCard>(l => l.BookId);
+            .HasForeignKey<MobileBooksAuthorCard>(l => l.AuthorId);
         
         modelBuilder.Entity<RandomMCollectionCard>()
             .HasOne(r => r.Collection)

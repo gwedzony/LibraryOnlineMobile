@@ -1,32 +1,27 @@
 using System.Diagnostics;
-using System.Net.Http.Json;
 using System.Text.Json;
 using Database.Data.MobileApp;
-using MauiApp1.Model;
-using MauiApp1.Model.DTO;
 
 namespace MauiApp1.Services;
 
-public class MobileBooksPreviewsService
+public class AuthorsService
 {
     private readonly HttpClient _httpClient;
 
-   
-
-    public MobileBooksPreviewsService()
+    public AuthorsService()
     {
         _httpClient = new HttpClient();
     }
-
-    public async Task<List<LatestMobileBooksCard>?> GetMobileBooksPreviews()
+    
+    public async Task<List<MobileBooksAuthorCard?>>GetAuthorsCards()
     {
         if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
         {
             return null;
         }
 
-        var BookPreviewsList = new List<LatestMobileBooksCard>();
-        Uri uri = new Uri(Constants.ApiUrl, "api/LatestBooksCard");
+        var authorsList = new List<MobileBooksAuthorCard>();
+        Uri uri = new Uri(Constants.ApiUrl, "api/LatestMobileBooksAuthorCard/");
 
         try
         {
@@ -34,7 +29,7 @@ public class MobileBooksPreviewsService
             if (responseMessage.IsSuccessStatusCode)
             {
                 string items = await responseMessage.Content.ReadAsStringAsync();
-                BookPreviewsList = JsonSerializer.Deserialize<List<LatestMobileBooksCard>>(items,new JsonSerializerOptions
+                authorsList  = JsonSerializer.Deserialize<List<MobileBooksAuthorCard>>(items,new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true,
                     ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles
@@ -46,6 +41,7 @@ public class MobileBooksPreviewsService
             Debug.WriteLine(@"\tERROR {0}", ex.Message);
         }
 
-        return BookPreviewsList;
+        return authorsList;
     }
+    
 }
