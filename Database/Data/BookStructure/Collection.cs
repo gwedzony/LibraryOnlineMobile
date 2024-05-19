@@ -25,6 +25,6 @@ public class Collection
    #region OneToOne
    
    public int? RandomCollectionsMobilePageId { get; set; }
-   public RandomMobileBooksCollectionCard? RandomCollectionsMobilePage { get; set; }
+   public RandomMCollectionCard? RandomCollectionsMobilePage { get; set; }
    #endregion
 }

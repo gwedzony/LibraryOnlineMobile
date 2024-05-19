@@ -11,22 +11,24 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240513192059_fixing-onetoone")]
-    partial class fixingonetoone
+    [Migration("20240518210719_Init2")]
+    partial class Init2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("BookCollection", b =>
                 {
                     b.Property<int>("BooksId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("CollectionsId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("BooksId", "CollectionsId");
 
@@ -39,30 +41,27 @@ namespace Database.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
-                    b.Property<int?>("LatestMobileBooksAuthorCardId")
-                        .HasColumnType("INTEGER");
+                    b.Property<int?>("MobileBooksAuthorCardId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PhotoUrl")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Surname")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LatestMobileBooksAuthorCardId")
-                        .IsUnique();
 
                     b.ToTable("Authors");
                 });
@@ -71,43 +70,37 @@ namespace Database.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("AddDateTime")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("AuthorId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("BookGenreId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int?>("LatestMobileBooksCardId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("longtext");
 
                     b.Property<long>("ReadCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
 
                     b.HasIndex("BookGenreId");
-
-                    b.HasIndex("LatestMobileBooksCardId")
-                        .IsUnique();
 
                     b.ToTable("Books");
                 });
@@ -116,19 +109,24 @@ namespace Database.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("BookId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("CollectionId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RandomMBooksCollectionCardId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BookId");
 
                     b.HasIndex("CollectionId");
+
+                    b.HasIndex("RandomMBooksCollectionCardId");
 
                     b.ToTable("BooksCollections");
                 });
@@ -137,11 +135,11 @@ namespace Database.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -152,23 +150,20 @@ namespace Database.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("CollectionImage")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("CollectionName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("RandomCollectionsMobilePageId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RandomCollectionsMobilePageId")
-                        .IsUnique();
 
                     b.ToTable("Collections");
                 });
@@ -177,10 +172,10 @@ namespace Database.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("BookId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -190,37 +185,55 @@ namespace Database.Migrations
                     b.ToTable("DetailBookMobilePages");
                 });
 
-            modelBuilder.Entity("Database.Data.MobileApp.LatestMobileBooksAuthorCard", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LatestMobileBooksAuthorCard");
-                });
-
             modelBuilder.Entity("Database.Data.MobileApp.LatestMobileBooksCard", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId")
+                        .IsUnique();
 
                     b.ToTable("LatestMobileBooksCard");
                 });
 
-            modelBuilder.Entity("Database.Data.MobileApp.RandomMobileBooksCollectionCard", b =>
+            modelBuilder.Entity("Database.Data.MobileApp.MobileBooksAuthorCard", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("RandomMobileBooksCollectionCards");
+                    b.HasIndex("BookId")
+                        .IsUnique();
+
+                    b.ToTable("MobileBooksAuthorCard");
+                });
+
+            modelBuilder.Entity("Database.Data.MobileApp.RandomMCollectionCard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CollectionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CollectionId")
+                        .IsUnique();
+
+                    b.ToTable("RandomMBooksCollectionCards");
                 });
 
             modelBuilder.Entity("BookCollection", b =>
@@ -238,15 +251,6 @@ namespace Database.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Database.Data.BookStructure.Author", b =>
-                {
-                    b.HasOne("Database.Data.MobileApp.LatestMobileBooksAuthorCard", "LatestMobileBooksAuthorCard")
-                        .WithOne("Book")
-                        .HasForeignKey("Database.Data.BookStructure.Author", "LatestMobileBooksAuthorCardId");
-
-                    b.Navigation("LatestMobileBooksAuthorCard");
-                });
-
             modelBuilder.Entity("Database.Data.BookStructure.Book", b =>
                 {
                     b.HasOne("Database.Data.BookStructure.Author", "Author")
@@ -261,15 +265,9 @@ namespace Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Database.Data.MobileApp.LatestMobileBooksCard", "LatestMobileBooksCard")
-                        .WithOne("Book")
-                        .HasForeignKey("Database.Data.BookStructure.Book", "LatestMobileBooksCardId");
-
                     b.Navigation("Author");
 
                     b.Navigation("BookGenre");
-
-                    b.Navigation("LatestMobileBooksCard");
                 });
 
             modelBuilder.Entity("Database.Data.BookStructure.BookCollection", b =>
@@ -286,18 +284,15 @@ namespace Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Database.Data.MobileApp.RandomMCollectionCard", "RandomMBooksCollectionCard")
+                        .WithMany()
+                        .HasForeignKey("RandomMBooksCollectionCardId");
+
                     b.Navigation("Book");
 
                     b.Navigation("Collection");
-                });
 
-            modelBuilder.Entity("Database.Data.BookStructure.Collection", b =>
-                {
-                    b.HasOne("Database.Data.MobileApp.RandomMobileBooksCollectionCard", "RandomCollectionsMobilePage")
-                        .WithOne("Collection")
-                        .HasForeignKey("Database.Data.BookStructure.Collection", "RandomCollectionsMobilePageId");
-
-                    b.Navigation("RandomCollectionsMobilePage");
+                    b.Navigation("RandomMBooksCollectionCard");
                 });
 
             modelBuilder.Entity("Database.Data.MobileApp.DetailBookMobilePage", b =>
@@ -311,9 +306,44 @@ namespace Database.Migrations
                     b.Navigation("Book");
                 });
 
+            modelBuilder.Entity("Database.Data.MobileApp.LatestMobileBooksCard", b =>
+                {
+                    b.HasOne("Database.Data.BookStructure.Book", "Book")
+                        .WithOne("LatestMobileBooksCard")
+                        .HasForeignKey("Database.Data.MobileApp.LatestMobileBooksCard", "BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("Database.Data.MobileApp.MobileBooksAuthorCard", b =>
+                {
+                    b.HasOne("Database.Data.BookStructure.Author", "Book")
+                        .WithOne("MobileBooksAuthorCard")
+                        .HasForeignKey("Database.Data.MobileApp.MobileBooksAuthorCard", "BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("Database.Data.MobileApp.RandomMCollectionCard", b =>
+                {
+                    b.HasOne("Database.Data.BookStructure.Collection", "Collection")
+                        .WithOne("RandomCollectionsMobilePage")
+                        .HasForeignKey("Database.Data.MobileApp.RandomMCollectionCard", "CollectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Collection");
+                });
+
             modelBuilder.Entity("Database.Data.BookStructure.Author", b =>
                 {
                     b.Navigation("Books");
+
+                    b.Navigation("MobileBooksAuthorCard");
                 });
 
             modelBuilder.Entity("Database.Data.BookStructure.Book", b =>
@@ -321,6 +351,8 @@ namespace Database.Migrations
                     b.Navigation("BookCollections");
 
                     b.Navigation("DetailBookMobilePages");
+
+                    b.Navigation("LatestMobileBooksCard");
                 });
 
             modelBuilder.Entity("Database.Data.BookStructure.BookGenre", b =>
@@ -331,21 +363,8 @@ namespace Database.Migrations
             modelBuilder.Entity("Database.Data.BookStructure.Collection", b =>
                 {
                     b.Navigation("BookCollections");
-                });
 
-            modelBuilder.Entity("Database.Data.MobileApp.LatestMobileBooksAuthorCard", b =>
-                {
-                    b.Navigation("Book");
-                });
-
-            modelBuilder.Entity("Database.Data.MobileApp.LatestMobileBooksCard", b =>
-                {
-                    b.Navigation("Book");
-                });
-
-            modelBuilder.Entity("Database.Data.MobileApp.RandomMobileBooksCollectionCard", b =>
-                {
-                    b.Navigation("Collection");
+                    b.Navigation("RandomCollectionsMobilePage");
                 });
 #pragma warning restore 612, 618
         }

@@ -23,16 +23,16 @@ namespace MobileAPI.Controller
 
         // GET: api/RandomMobileBooksCollectionCards
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RandomMobileBooksCollectionCard>>> GetRandomMobileBooksCollectionCards()
+        public async Task<ActionResult<IEnumerable<RandomMCollectionCard>>> GetRandomMobileBooksCollectionCards()
         {
-            return await _context.RandomMobileBooksCollectionCards.ToListAsync();
+            return await _context.RandomMBooksCollectionCards.ToListAsync();
         }
 
         // GET: api/RandomMobileBooksCollectionCards/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<RandomMobileBooksCollectionCard>> GetRandomMobileBooksCollectionCard(int id)
+        public async Task<ActionResult<RandomMCollectionCard>> GetRandomMobileBooksCollectionCard(int id)
         {
-            var randomMobileBooksCollectionCard = await _context.RandomMobileBooksCollectionCards.FindAsync(id);
+            var randomMobileBooksCollectionCard = await _context.RandomMBooksCollectionCards.FindAsync(id);
 
             if (randomMobileBooksCollectionCard == null)
             {
@@ -45,14 +45,14 @@ namespace MobileAPI.Controller
         // PUT: api/RandomMobileBooksCollectionCards/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRandomMobileBooksCollectionCard(int id, RandomMobileBooksCollectionCard randomMobileBooksCollectionCard)
+        public async Task<IActionResult> PutRandomMobileBooksCollectionCard(int id, RandomMCollectionCard randomMCollectionCard)
         {
-            if (id != randomMobileBooksCollectionCard.Id)
+            if (id != randomMCollectionCard.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(randomMobileBooksCollectionCard).State = EntityState.Modified;
+            _context.Entry(randomMCollectionCard).State = EntityState.Modified;
 
             try
             {
@@ -76,25 +76,25 @@ namespace MobileAPI.Controller
         // POST: api/RandomMobileBooksCollectionCards
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<RandomMobileBooksCollectionCard>> PostRandomMobileBooksCollectionCard(RandomMobileBooksCollectionCard randomMobileBooksCollectionCard)
+        public async Task<ActionResult<RandomMCollectionCard>> PostRandomMobileBooksCollectionCard(RandomMCollectionCard randomMCollectionCard)
         {
-            _context.RandomMobileBooksCollectionCards.Add(randomMobileBooksCollectionCard);
+            _context.RandomMBooksCollectionCards.Add(randomMCollectionCard);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRandomMobileBooksCollectionCard", new { id = randomMobileBooksCollectionCard.Id }, randomMobileBooksCollectionCard);
+            return CreatedAtAction("GetRandomMobileBooksCollectionCard", new { id = randomMCollectionCard.Id }, randomMCollectionCard);
         }
 
         // DELETE: api/RandomMobileBooksCollectionCards/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRandomMobileBooksCollectionCard(int id)
         {
-            var randomMobileBooksCollectionCard = await _context.RandomMobileBooksCollectionCards.FindAsync(id);
+            var randomMobileBooksCollectionCard = await _context.RandomMBooksCollectionCards.FindAsync(id);
             if (randomMobileBooksCollectionCard == null)
             {
                 return NotFound();
             }
 
-            _context.RandomMobileBooksCollectionCards.Remove(randomMobileBooksCollectionCard);
+            _context.RandomMBooksCollectionCards.Remove(randomMobileBooksCollectionCard);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -102,7 +102,7 @@ namespace MobileAPI.Controller
 
         private bool RandomMobileBooksCollectionCardExists(int id)
         {
-            return _context.RandomMobileBooksCollectionCards.Any(e => e.Id == id);
+            return _context.RandomMBooksCollectionCards.Any(e => e.Id == id);
         }
     }
 }

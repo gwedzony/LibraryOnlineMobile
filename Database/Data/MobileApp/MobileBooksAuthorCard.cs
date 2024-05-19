@@ -4,7 +4,7 @@ using Database.Data.BookStructure;
 
 namespace Database.Data.MobileApp;
 
-public class LatestMobileBooksAuthorCard
+public class MobileBooksAuthorCard
 {
     [Key] 
     public int Id { get; set; }

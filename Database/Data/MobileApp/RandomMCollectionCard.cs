@@ -3,7 +3,7 @@ using Database.Data.BookStructure;
 
 namespace Database.Data.MobileApp;
 
-public class RandomMobileBooksCollectionCard
+public class RandomMCollectionCard
 {
     public int Id { get; set; }
 

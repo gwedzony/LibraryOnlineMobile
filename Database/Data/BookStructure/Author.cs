@@ -31,8 +31,8 @@ public class Author
     
     #region OneToOne
    
-    public int? LatestMobileBooksAuthorCardId { get; set; }
-    public LatestMobileBooksAuthorCard ? LatestMobileBooksAuthorCard { get; set; }
+    public int? MobileBooksAuthorCardId { get; set; }
+    public MobileBooksAuthorCard ? MobileBooksAuthorCard { get; set; }
     #endregion
    
 }

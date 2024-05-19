@@ -1,14 +1,12 @@
 using Database.Data.BookStructure;
 using Database.Data.MobileApp;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using MySql.EntityFrameworkCore.Extensions;
 
 namespace Database.Context;
 
-public class DatabaseContext : DbContext
+public class DatabaseContext() : DbContext
 {
-
-    protected readonly IConfiguration Configuration;
     
     public DbSet<Book> Books { get; set; }
     public DbSet<Author> Authors { get; set; }
@@ -17,14 +15,11 @@ public class DatabaseContext : DbContext
     public DbSet<BookCollection> BooksCollections { get; set; }
     public DbSet<DetailBookMobilePage> DetailBookMobilePages { get; set; }
     public DbSet<LatestMobileBooksCard> LatestMobileBooksCard { get; set; }
-    public DbSet<LatestMobileBooksAuthorCard> LatestMobileBooksAuthorCard { get; set; }
-    public DbSet<RandomMobileBooksCollectionCard> RandomMobileBooksCollectionCards{ get; set; }
+    public DbSet<MobileBooksAuthorCard> MobileBooksAuthorCard { get; set; }
+    
+    public DbSet<RandomMCollectionCard> RandomMBooksCollectionCards{ get; set; }
 
 
-    public DatabaseContext(IConfiguration configuration)
-    {
-        Configuration = configuration;
-    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<DetailBookMobilePage>()
@@ -37,15 +32,15 @@ public class DatabaseContext : DbContext
             .WithOne(b => b.LatestMobileBooksCard)
             .HasForeignKey<LatestMobileBooksCard>(l => l.BookId);
         
-        modelBuilder.Entity<LatestMobileBooksAuthorCard>()
+        modelBuilder.Entity<MobileBooksAuthorCard>()
             .HasOne(l => l.Book)
-            .WithOne(b => b.LatestMobileBooksAuthorCard)
-            .HasForeignKey<LatestMobileBooksAuthorCard>(l => l.BookId);
+            .WithOne(b => b.MobileBooksAuthorCard)
+            .HasForeignKey<MobileBooksAuthorCard>(l => l.BookId);
         
-        modelBuilder.Entity<RandomMobileBooksCollectionCard>()
+        modelBuilder.Entity<RandomMCollectionCard>()
             .HasOne(r => r.Collection)
             .WithOne(c => c.RandomCollectionsMobilePage)
-            .HasForeignKey<RandomMobileBooksCollectionCard>(r => r.CollectionId);
+            .HasForeignKey<RandomMCollectionCard>(r => r.CollectionId);
         
         modelBuilder.Entity<Book>()
             .HasOne(b => b.BookGenre)
@@ -59,13 +54,12 @@ public class DatabaseContext : DbContext
             .HasMany(b => b.Collections)
             .WithMany(c => c.Books);
 
-
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        //optionsBuilder.UseSqlite(@"Data Source=/Users/grzesiek/RiderProjects/ProjektMobilne/Database/identifier.sqlite");
-        var connectionString = Configuration.GetConnectionString("Default");
-        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+       //optionsBuilder.UseSqlite(@"Data Source=/Users/grzesiek/RiderProjects/ProjektMobilne/Database/identifier.sqlite");
+       optionsBuilder.UseMySQL(
+    "server=mysql-229035fc-mkgw-projektmobilki.h.aivencloud.com;Port=13237;uid=avnadmin;pwd=AVNS_WhD37An18x2d4xxrYYY;database=db;SslMode=Required");
     }
 }
