@@ -57,6 +57,9 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="AathifMahir.Maui.MauiIcons.FontAwesome" Version="3.0.0" />
+        <PackageReference Include="AathifMahir.Maui.MauiIcons.Material" Version="3.0.0" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="9.0.0" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
         <PackageReference Include="Material.Components.Maui" Version="0.2.2-preview" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
@@ -69,6 +72,23 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Database\Database.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiXaml Update="Pages\HomePage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Pages\HomePage.xaml.cs">
+        <DependentUpon>HomePage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Pages\Shared\" />
     </ItemGroup>
 
 </Project>
