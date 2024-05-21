@@ -38,7 +38,7 @@ public class MainPageViewModel: BaseViewModel
     private async Task GetPreviewsFromApi()
     {
         
-        List<LatestMobileBooksCard> list = await _service.GetMobileBooksPreviews();
+        List<LatestMobileBooksCard> list = await _service.GetItems();
 
         
         foreach (var item in list)
@@ -51,6 +51,7 @@ public class MainPageViewModel: BaseViewModel
                 BookDescription = item.Book.Description,
                 SmallCoverImg = item.Book.Image
             });
+           
         }
         
     }

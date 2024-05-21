@@ -35,7 +35,7 @@ public class AuthorsPageViewModel: BaseViewModel
     private async Task GetAuthorsCardsFromApi()
     {
         
-        List<MobileBooksAuthorCard> list = await _service.GetAuthorsCards();
+        List<MobileBooksAuthorCard> list = await _service.GetItems();
 
         
         foreach (var item in list)

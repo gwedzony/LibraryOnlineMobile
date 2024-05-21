@@ -5,7 +5,7 @@
              BackgroundColor="#0D0118">
     
     <ContentPage.BindingContext>
-        <viewModel:MainPageViewModel/>
+        <viewModel:DetailPageViewModel/>
     </ContentPage.BindingContext>
 
     <Grid Margin="20">
@@ -27,7 +27,7 @@
                 </Border.Shadow>
                 <Frame CornerRadius="20" HasShadow="False" Padding="0"> 
                    <Image Aspect="AspectFill"  
-                          Source="pobrane.jpg" 
+                          Source="{Binding DetailPages[0].SmallCoverImg}"
                           HorizontalOptions="FillAndExpand" 
                            VerticalOptions="FillAndExpand"/> 
                     </Frame> 
@@ -67,7 +67,7 @@
                    
                     
                     <Label Grid.Row="1" 
-                           Text="Tittle from database"
+                           Text="{Binding DetailPages[0].BookTitle}"
                            TextColor="{StaticResource LightGray}"
                            HorizontalOptions="Start"
                            Margin="45,0,0,0"/>
@@ -85,7 +85,7 @@
                         />
                     
                     
-                    <Label Grid.Row="3" Text="Author  from database" 
+                    <Label Grid.Row="3" Text="{Binding DetailPages[0].Author}" 
                            TextColor="{StaticResource LightGray}"
                            HorizontalOptions="Start"
                            Margin="45,0,0,0"/>
@@ -102,7 +102,7 @@
                             Margin="25,0,0,0"
                         />
                    
-                    <Label Grid.Row="5" Text="Description from database" 
+                    <Label Grid.Row="5" Text="{Binding DetailPages[0].BookDescription}" 
                            TextColor="{StaticResource LightGray}"
                            HorizontalOptions="Start"
                            Margin="45,0,0,0"/>

@@ -9,32 +9,31 @@ namespace MauiApp1.Services;
 
 public class BooksService
 {
+  
     private readonly HttpClient _httpClient;
-
-   
-
+ 
     public BooksService()
     {
         _httpClient = new HttpClient();
     }
 
-    public async Task<List<LatestMobileBooksCard>?> GetMobileBooksPreviews()
+    public async Task<List<LatestMobileBooksCard>?> GetItems()
     {
         if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
         {
             return null;
         }
 
-        var BookPreviewsList = new List<LatestMobileBooksCard>();
-        Uri uri = new Uri(Constants.ApiUrl, "api/LatestBooksCard");
+        var items = new List<LatestMobileBooksCard>();
+        Uri uri = new Uri(Constants.ApiUrl, "api/LatestBooksCard/");
 
         try
         {
             HttpResponseMessage responseMessage = await _httpClient.GetAsync(uri);
             if (responseMessage.IsSuccessStatusCode)
             {
-                string items = await responseMessage.Content.ReadAsStringAsync();
-                BookPreviewsList = JsonSerializer.Deserialize<List<LatestMobileBooksCard>>(items,new JsonSerializerOptions
+                string response = await responseMessage.Content.ReadAsStringAsync();
+                items = JsonSerializer.Deserialize<List<LatestMobileBooksCard>>(response,new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true,
                     ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles
@@ -46,6 +45,7 @@ public class BooksService
             Debug.WriteLine(@"\tERROR {0}", ex.Message);
         }
 
-        return BookPreviewsList;
+
+        return items;
     }
 }
