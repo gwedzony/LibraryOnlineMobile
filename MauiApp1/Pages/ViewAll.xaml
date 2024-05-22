@@ -1,11 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Pages.ViewAll"
              NavigationPage.HasNavigationBar="False"
-             Background="#4F3F9B">
+             Background="#0D0118">
     
     <ContentPage.BindingContext>
         <viewModel:AuthorsPageViewModel/>
@@ -32,20 +30,35 @@
         
         <CollectionView Grid.Row="1" ItemsSource="{Binding AuthorsCards}">
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout ItemSpacing="15" Orientation="Vertical"/>
+                <LinearItemsLayout ItemSpacing="20" Orientation="Vertical"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame BackgroundColor="#F2F1F6" CornerRadius="20" Margin="10">
+                    <Frame BackgroundColor="#F2F1F6" CornerRadius="20" Margin="15">
                         <Grid HeightRequest="350">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <BoxView BackgroundColor="#FFD700" CornerRadius="20" Margin="5" />
-                            <Label Grid.Row="1" Text="{Binding Title}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
-                            <Label Grid.Row="2" Text="{Binding Description}" FontSize="16" Margin="10,0,10,10"/>
+                            
+                            <Frame CornerRadius="20" HasShadow="False" Padding="0">
+                                <Image Aspect="AspectFill"
+                                       Source="{Binding PhotoUrl}"
+                                      
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand" />
+                            </Frame>
+                            
+                            <!-- Imię autora -->
+                            <Label Grid.Row="1" Text="{Binding Name}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+        
+                            <!-- Nazwisko autora -->
+                            <Label Grid.Row="2" Text="{Binding Surname}" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,5,0,10"/>
+        
+                            <!-- Opis -->
+                            <Label Grid.Row="3" Text="{Binding Description}" FontSize="16" Margin="10" />
                         </Grid>
                     </Frame>
                 </DataTemplate>
