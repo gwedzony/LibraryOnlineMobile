@@ -6,10 +6,27 @@
     xmlns:local="clr-namespace:MauiApp1.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="MauiApp1">
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:HomePage}"
-        Route="HomePage" />
+    
+    <TabBar>
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate local:HomePage}"
+                Route="HomePage" />
+        </Tab>
+        <Tab Title="Autorzy" Icon="writer.png">
+            <ShellContent
+                Title="Autorzy"
+                ContentTemplate="{DataTemplate local:ViewAll}"
+                Route="ViewAll" />
+        </Tab>
+        <Tab Title="Kolekcje" Icon="newest.png">
+            <ShellContent
+                Title="Kolekcje"
+                ContentTemplate="{DataTemplate local:DetailsPage}"
+                Route="DetailsPage" />
+        </Tab>
+       
+    </TabBar>
 
 </Shell>

@@ -32,6 +32,7 @@ public class BooksService
             HttpResponseMessage responseMessage = await _httpClient.GetAsync(uri);
             if (responseMessage.IsSuccessStatusCode)
             {
+                Debug.WriteLine("successs");
                 string response = await responseMessage.Content.ReadAsStringAsync();
                 items = JsonSerializer.Deserialize<List<LatestMobileBooksCard>>(response,new JsonSerializerOptions
                 {

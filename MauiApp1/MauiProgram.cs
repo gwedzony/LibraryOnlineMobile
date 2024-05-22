@@ -3,6 +3,8 @@ using Microsoft.Extensions.Logging;
 using Material.Components.Maui.Extensions;
 using MauiIcons.FontAwesome;
 using CommunityToolkit.Maui;
+using MauiApp1.Pages;
+using MauiApp1.ViewModel;
 using MauiIcons.Material;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
@@ -18,6 +20,11 @@ public static class MauiProgram
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
         }).UseMauiCommunityToolkit();
+
+
+        builder.Services.AddSingleton<MainPageViewModel>();
+        builder.Services.AddSingleton<HomePage>();
+        
 #if DEBUG
         builder.Logging.AddDebug();
 #endif

@@ -13,8 +13,5 @@ public partial class DetailsPage : ContentPage
         InitializeComponent();
     }
 
-    private async void HomePageClick(object? sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new MainPage());
-    }
+   
 }

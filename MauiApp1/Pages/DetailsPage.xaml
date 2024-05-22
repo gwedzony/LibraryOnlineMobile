@@ -51,8 +51,6 @@
                        <RowDefinition Height="70"/>
                        <RowDefinition Height="*"/>
                    </Grid.RowDefinitions>
-                    
-                    
                        
                         <Label 
                             Text="Tittle" 
@@ -84,13 +82,10 @@
                             Margin="25,0,0,0"
                         />
                     
-                    
                     <Label Grid.Row="3" Text="{Binding DetailPages[0].Author}" 
                            TextColor="{StaticResource LightGray}"
                            HorizontalOptions="Start"
                            Margin="45,0,0,0"/>
-                    
-                   
                         <Label 
                             Grid.Row="4"
                             Text="Description" 
@@ -112,16 +107,12 @@
                                  VerticalOptions="Center"
                                  CornerRadius="8" 
                                  BackgroundColor="#C283FD"
-                                 Clicked="HomePageClick">
+                                 >
                            
                         </Button>
                 </Grid>
             </Border>
         </Grid>
     </Grid>
-    
-    
-    
-    
     
 </ContentPage>

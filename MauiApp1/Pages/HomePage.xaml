@@ -5,10 +5,7 @@
              xmlns:md="clr-namespace:Material;assembly=Material.Components.Maui"
              xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Pages.HomePage">
-    
-    <ContentPage.BindingContext>
-        <viewModel:MainPageViewModel />
-    </ContentPage.BindingContext>
+
 
     <Grid BackgroundColor="#0D0118" RowDefinitions=".05*,.1*,.45*,.05*,.05*">
         <Label FontSize="16"
@@ -50,11 +47,10 @@
                             <Grid RowDefinitions=".2*,.6*,2*">
 
                                 <Frame Grid.RowSpan="3" CornerRadius="20" HasShadow="False" Padding="0">
-                                    <Image Aspect="AspectFill"
+                                   <Image Aspect="AspectFill"
                                            Source="{Binding SmallCoverImg}"
                                            HorizontalOptions="FillAndExpand"
                                            VerticalOptions="FillAndExpand" />
-
                                 </Frame>
 
                                 <RoundRectangle Grid.RowSpan="3"
@@ -130,6 +126,6 @@
 
 
     </Grid>
-  
-    
+
+
 </ContentPage>
