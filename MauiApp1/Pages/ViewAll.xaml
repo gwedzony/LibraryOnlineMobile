@@ -17,50 +17,68 @@
                    HorizontalOptions="Center"/>
             
             <Grid Margin="25,10,0,0" ColumnDefinitions=".9*,.1*">
-                <Border Padding="0" StrokeShape="RoundRectangle 8,8,8,8">
+                <Border Padding="0" Stroke="White" StrokeThickness="2">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8"/>
+                    </Border.StrokeShape>
                     <Grid ColumnDefinitions=".1*,.9*">
                         <Entry Grid.Column="1" FontFamily="bold" 
                                Placeholder="Search ..." 
                                PlaceholderColor="#9D9D9D" 
-                               TextColor="White"></Entry>
+                               TextColor="White"/>
                     </Grid>
                 </Border>
             </Grid>
         </VerticalStackLayout>
         
-        <CollectionView Grid.Row="1" ItemsSource="{Binding AuthorsCards}">
+        <CollectionView Grid.Row="1" ItemsSource="{Binding AuthorsCards}" Margin="40">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="20" Orientation="Vertical"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame BackgroundColor="#F2F1F6" CornerRadius="20" Margin="15">
-                        <Grid HeightRequest="350">
+                    <Border BackgroundColor="#F2F1F6" Stroke="#311b45" StrokeThickness="2" Margin="0,20,0,0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#311b45"
+                                    Opacity="0.7"
+                                    Radius="10"
+                                    Offset="0,0"/>
+                        </Border.Shadow>
+                        <Grid HeightRequest="350" Margin="20">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             
-                            <Frame CornerRadius="20" HasShadow="False" Padding="0">
-                                <Image Aspect="AspectFill"
-                                       Source="{Binding PhotoUrl}"
-                                      
-                                       HorizontalOptions="FillAndExpand"
-                                       VerticalOptions="FillAndExpand" />
-                            </Frame>
+                            <Border Stroke="#311b45" StrokeThickness="2" >
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20"/>
+                                </Border.StrokeShape>
+                                <Frame HasShadow="False" Padding="0">
+                                    <Image Aspect="Fill"
+                                           Source="{Binding PhotoUrl}"
+                                           WidthRequest="300"
+                                           HeightRequest="220"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
+                                </Frame>
+                            </Border>
+
                             
-                            <!-- Imię autora -->
-                            <Label Grid.Row="1" Text="{Binding Name}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
-        
-                            <!-- Nazwisko autora -->
-                            <Label Grid.Row="2" Text="{Binding Surname}" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,5,0,10"/>
+                            <!-- Imię i nazwisko autora -->
+                            <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center">
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="{Binding Surname}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" Margin="5,0,0,0"/>
+                            </HorizontalStackLayout>
         
                             <!-- Opis -->
-                            <Label Grid.Row="3" Text="{Binding Description}" FontSize="16" Margin="10" />
+                            <Label Grid.Row="2" Text="{Binding Description}" FontSize="16" Margin="10" />
                         </Grid>
-                    </Frame>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
