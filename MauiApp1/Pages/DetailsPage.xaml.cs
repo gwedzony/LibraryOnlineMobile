@@ -1,22 +1,34 @@
-﻿namespace MauiApp1.Pages;
+﻿using System.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
+using MauiApp1.ViewModel;
+using Microsoft.EntityFrameworkCore.Query;
 
-[QueryProperty(nameof(bookId), "id")]
+namespace MauiApp1.Pages;
+
+[QueryProperty(nameof(BookId), "BookId")]
 public partial class DetailsPage : ContentPage
 {
-    int bookId;
+    private int id;
+    private DetailPageViewModel vm;
     public int BookId
     {
-        get => bookId;
+        get => id;
         set
         {
-            bookId= value;
+            id = value;
             OnPropertyChanged();
+            setProperPage(id);
         }
+       
     }
     public DetailsPage()
     {
         InitializeComponent();
+        BindingContext = vm = new DetailPageViewModel();
     }
-
-   
+    private void setProperPage(int id)
+    {
+        vm.GetItem(id);
+    }
+    
 }

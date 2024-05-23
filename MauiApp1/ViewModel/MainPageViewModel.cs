@@ -26,26 +26,22 @@ public partial class MainPageViewModel: ObservableObject
             }
         }
     }
-
-
     public MainPageViewModel()
     {
         _service= new BooksService();
         _mobileBooksPreviews = new ObservableCollection<MobileBookPreviewDTO>();
         
         GetPreviewsFromApi();
-
     }
 
     private async Task GetPreviewsFromApi()
     {
         
         List<LatestMobileBooksCard> list = await _service.GetItems();
-
         
         foreach (var item in list)
         {
-           
+       
             _mobileBooksPreviews.Add(new MobileBookPreviewDTO()
             {
                 MobileBookPreviewId = item.Id,
@@ -61,8 +57,6 @@ public partial class MainPageViewModel: ObservableObject
     [RelayCommand]
     private async Task Tap(int id)
     {
-        await Shell.Current.GoToAsync($"DetailsPage?BookId={id}");
+       await Shell.Current.GoToAsync($"DetailsPage?BookId={id}");
     }
-    
-    
 }
