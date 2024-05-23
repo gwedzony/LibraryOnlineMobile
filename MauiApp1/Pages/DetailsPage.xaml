@@ -4,10 +4,6 @@
              x:Class="MauiApp1.Pages.DetailsPage"
              BackgroundColor="#0D0118">
     
-    <ContentPage.BindingContext>
-        <viewModel:DetailPageViewModel/>
-    </ContentPage.BindingContext>
-
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="300"/>
@@ -27,7 +23,7 @@
                 </Border.Shadow>
                 <Frame CornerRadius="20" HasShadow="False" Padding="0"> 
                    <Image Aspect="AspectFill"  
-                          Source="{Binding DetailPage.SmallCoverImg}"
+                          Source="{Binding Image}"
                           HorizontalOptions="FillAndExpand" 
                            VerticalOptions="FillAndExpand"/> 
                     </Frame> 
@@ -65,7 +61,7 @@
                    
                     
                     <Label Grid.Row="1" 
-                           Text="{Binding DetailPage.BookTitle}"
+                           Text="{Binding Title}"
                            TextColor="{StaticResource LightGray}"
                            HorizontalOptions="Start"
                            Margin="45,0,0,0"/>
@@ -82,7 +78,7 @@
                             Margin="25,0,0,0"
                         />
                     
-                    <Label Grid.Row="3" Text="{Binding DetailPage.Author}" 
+                    <Label Grid.Row="3" Text="{Binding Author}" 
                            TextColor="{StaticResource LightGray}"
                            HorizontalOptions="Start"
                            Margin="45,0,0,0"/>
@@ -97,7 +93,7 @@
                             Margin="25,0,0,0"
                         />
                    
-                    <Label Grid.Row="5" Text="{Binding DetailPage.BookDescription}" 
+                    <Label Grid.Row="5" Text="{Binding Description}" 
                            TextColor="{StaticResource LightGray}"
                            HorizontalOptions="Start"
                            Margin="45,0,0,0"/>

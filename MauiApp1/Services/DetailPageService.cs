@@ -29,13 +29,14 @@ public class DetailPageService
             HttpResponseMessage responseMessage = await _httpClient.GetAsync(uri);
             if (responseMessage.IsSuccessStatusCode)
             {
-               
+               Debug.WriteLine("success from details");
                 string response = await responseMessage.Content.ReadAsStringAsync();
                 item = JsonSerializer.Deserialize<DetailBookMobilePage>(response,new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true,
                     ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles
                 });
+               
             }
         }
         catch (Exception ex)

@@ -37,8 +37,11 @@ namespace MobileAPI.Controller
         [HttpGet("{id}")]
         public async Task<ActionResult<DetailBookMobilePage>> GetDetailBookMobilePage(int id)
         {
-            var detailBookMobilePage = await _context.DetailBookMobilePages.FindAsync(id);
-
+            var detailBookMobilePage = await _context.DetailBookMobilePages
+                .Include(b=>b.Book)
+                .ThenInclude((a=>a.Author))
+                .FirstOrDefaultAsync(b => b.Id == id);
+            
             if (detailBookMobilePage == null)
             {
                 return NotFound();
