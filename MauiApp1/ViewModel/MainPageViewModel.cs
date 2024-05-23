@@ -1,5 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Database.Data.MobileApp;
 using MauiApp1.Model;
 using MauiApp1.Model.DTO;
@@ -7,7 +9,7 @@ using MauiApp1.Services;
 
 namespace MauiApp1.ViewModel;
 
-public class MainPageViewModel: BaseViewModel
+public partial class MainPageViewModel: ObservableObject
 {
     private ObservableCollection<MobileBookPreviewDTO> _mobileBooksPreviews;
     
@@ -49,11 +51,18 @@ public class MainPageViewModel: BaseViewModel
                 MobileBookPreviewId = item.Id,
                 BookTitle = item.Book.Title,
                 BookDescription = item.Book.Description,
-                SmallCoverImg = item.Book.Image
+                SmallCoverImg = item.Book.Image,
+                BookId = item.BookId
             });
            
         }
-        
     }
+    
+    [RelayCommand]
+    private async Task Tap(int id)
+    {
+        await Shell.Current.GoToAsync($"DetailsPage?BookId={id}");
+    }
+    
     
 }

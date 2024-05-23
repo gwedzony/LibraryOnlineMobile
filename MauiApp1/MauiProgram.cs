@@ -21,9 +21,11 @@ public static class MauiProgram
             fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
         }).UseMauiCommunityToolkit();
 
-
         builder.Services.AddSingleton<MainPageViewModel>();
         builder.Services.AddSingleton<HomePage>();
+        
+        builder.Services.AddTransient<DetailPageViewModel>();
+        builder.Services.AddTransient<DetailsPage>();
         
 #if DEBUG
         builder.Logging.AddDebug();

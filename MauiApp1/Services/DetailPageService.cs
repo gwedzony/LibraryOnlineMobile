@@ -14,15 +14,15 @@ public class DetailPageService
         _httpClient = new HttpClient();
     }
 
-    public async Task<List<DetailBookMobilePage>?> GetItems()
+    public async Task<DetailBookMobilePage?> GetItem(int id)
     {
         if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
         {
             return null;
         }
 
-        var items = new List<DetailBookMobilePage>();
-        Uri uri = new Uri(Constants.ApiUrl, "api/Details/");
+        var item = new DetailBookMobilePage();
+        Uri uri = new Uri(Constants.ApiUrl, $"api/Details/{id}");
 
         try
         {
@@ -31,7 +31,7 @@ public class DetailPageService
             {
                
                 string response = await responseMessage.Content.ReadAsStringAsync();
-                items = JsonSerializer.Deserialize<List<DetailBookMobilePage>>(response,new JsonSerializerOptions
+                item = JsonSerializer.Deserialize<DetailBookMobilePage>(response,new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true,
                     ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles
@@ -43,6 +43,6 @@ public class DetailPageService
             Debug.WriteLine(@"\tERROR {0}", ex.Message);
         }
 
-        return items;
+        return item;
     }
 }

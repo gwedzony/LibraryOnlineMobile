@@ -1,54 +1,51 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Database.Data.MobileApp;
 using MauiApp1.Model.DTO;
 using MauiApp1.Services;
 
 namespace MauiApp1.ViewModel;
 
-public class DetailPageViewModel: BaseViewModel
+public partial class DetailPageViewModel: ObservableObject
 {
-    private ObservableCollection<DetailPageDTO> _detailPages;
-    
+    private DetailPageDTO _detailPage;
     private readonly DetailPageService _service;
-    public ObservableCollection<DetailPageDTO> DetailPages
+    
+    [ObservableProperty]
+    private int _bookId;
+    
+    
+    public DetailPageDTO DetailPage
     {
-        get => _detailPages;
+        get => _detailPage;
         set
         {
-            if (_detailPages == value) return;
-            _detailPages = value;
-            OnPropertyChanged(nameof(DetailPages));
+            if (_detailPage == value) return;
+            _detailPage = value;
+            OnPropertyChanged(nameof(DetailPage));
         }
     }
     
     public DetailPageViewModel()
     {
         _service = new DetailPageService();
-        _detailPages = new ObservableCollection<DetailPageDTO>();
-        GetAll();
+        GetItem(_bookId);
     }
-    
-    
-    private async Task GetAll()
+
+    private async Task GetItem(int id)
     {
-        
-        List<DetailBookMobilePage> list = await _service.GetItems();
-
-        
-        foreach (var item in list)
+        DetailBookMobilePage item = await _service.GetItem(id);
+        _detailPage = new DetailPageDTO()
         {
-           
-            _detailPages.Add(new DetailPageDTO()
-            {
-                Id = item.Id,
-                SmallCoverImg = item.Book!.Image,
-                BookTitle = item.Book.Title,
-                BookDescription= item.Book.Description,
-                Author = $"{item.Book.Author.Name} {item.Book.Author.Surname}",
-            });
-        }
+            Id = item.Id,
+            Author = $"{item.Book.Author.Name} {item.Book.Author.Surname}",
+            BookTitle = item.Book.Title,
+            BookDescription = item.Book.Description,
+            SmallCoverImg = item.Book.Image
+            
+        };
+        
     }
-
-
+  
 }

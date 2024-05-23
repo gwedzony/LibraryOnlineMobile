@@ -4,11 +4,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:md="clr-namespace:Material;assembly=Material.Components.Maui"
              xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
+             xmlns:dataAnnotations="clr-namespace:System.ComponentModel.DataAnnotations;assembly=System.ComponentModel.Annotations"
              x:Class="MauiApp1.Pages.HomePage"
              BackgroundColor="#0D0118">
 
     <ContentPage.BindingContext>
-        <viewModel:MainPageViewModel /> <!-- Zamień na właściwy ViewModel -->
+        <viewModel:MainPageViewModel />
     </ContentPage.BindingContext>
 
     <Grid RowDefinitions="0.05*, 0.1*, 0.45*, 0.05*, 0.05*">
@@ -40,7 +41,15 @@
                                 StrokeThickness="2"
                                 WidthRequest="300">
                             <Grid RowDefinitions="0.2*, 0.6*, 2*">
-
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding 
+                                    Source={RelativeSource 
+                                    AncestorType={x:Type viewModel:MainPageViewModel}},
+                                    Path=TapCommand}"
+                                    CommandParameter="{Binding BookId}"
+                                    NumberOfTapsRequired="1" />
+                            </Grid.GestureRecognizers>
                                 <Frame Grid.RowSpan="3" CornerRadius="20" HasShadow="False" Padding="0">
                                     <Image Aspect="AspectFill"
                                            Source="{Binding SmallCoverImg}"

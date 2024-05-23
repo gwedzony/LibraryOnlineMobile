@@ -27,7 +27,7 @@
                 </Border.Shadow>
                 <Frame CornerRadius="20" HasShadow="False" Padding="0"> 
                    <Image Aspect="AspectFill"  
-                          Source="{Binding DetailPages[0].SmallCoverImg}"
+                          Source="{Binding DetailPage.SmallCoverImg}"
                           HorizontalOptions="FillAndExpand" 
                            VerticalOptions="FillAndExpand"/> 
                     </Frame> 
@@ -65,7 +65,7 @@
                    
                     
                     <Label Grid.Row="1" 
-                           Text="{Binding DetailPages[0].BookTitle}"
+                           Text="{Binding DetailPage.BookTitle}"
                            TextColor="{StaticResource LightGray}"
                            HorizontalOptions="Start"
                            Margin="45,0,0,0"/>
@@ -82,7 +82,7 @@
                             Margin="25,0,0,0"
                         />
                     
-                    <Label Grid.Row="3" Text="{Binding DetailPages[0].Author}" 
+                    <Label Grid.Row="3" Text="{Binding DetailPage.Author}" 
                            TextColor="{StaticResource LightGray}"
                            HorizontalOptions="Start"
                            Margin="45,0,0,0"/>
@@ -97,7 +97,7 @@
                             Margin="25,0,0,0"
                         />
                    
-                    <Label Grid.Row="5" Text="{Binding DetailPages[0].BookDescription}" 
+                    <Label Grid.Row="5" Text="{Binding DetailPage.BookDescription}" 
                            TextColor="{StaticResource LightGray}"
                            HorizontalOptions="Start"
                            Margin="45,0,0,0"/>
