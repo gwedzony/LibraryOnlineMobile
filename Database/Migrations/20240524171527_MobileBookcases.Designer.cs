@@ -3,6 +3,7 @@ using System;
 using Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,14 +11,31 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240524171527_MobileBookcases")]
+    partial class MobileBookcases
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("BookBookcase", b =>
+                {
+                    b.Property<int>("BookcasesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BooksId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BookcasesId", "BooksId");
+
+                    b.HasIndex("BooksId");
+
+                    b.ToTable("BookBookcase");
+                });
 
             modelBuilder.Entity("BookCollection", b =>
                 {
@@ -165,6 +183,42 @@ namespace Database.Migrations
                     b.ToTable("Collections");
                 });
 
+            modelBuilder.Entity("Database.Data.MobileApp.BookBookcases", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookcasesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("BookcasesId");
+
+                    b.ToTable("BookBookcases");
+                });
+
+            modelBuilder.Entity("Database.Data.MobileApp.Bookcase", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bookcase");
+                });
+
             modelBuilder.Entity("Database.Data.MobileApp.DetailBookMobilePage", b =>
                 {
                     b.Property<int>("Id")
@@ -233,6 +287,21 @@ namespace Database.Migrations
                     b.ToTable("RandomMBooksCollectionCards");
                 });
 
+            modelBuilder.Entity("BookBookcase", b =>
+                {
+                    b.HasOne("Database.Data.MobileApp.Bookcase", null)
+                        .WithMany()
+                        .HasForeignKey("BookcasesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Database.Data.BookStructure.Book", null)
+                        .WithMany()
+                        .HasForeignKey("BooksId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("BookCollection", b =>
                 {
                     b.HasOne("Database.Data.BookStructure.Book", null)
@@ -292,6 +361,25 @@ namespace Database.Migrations
                     b.Navigation("RandomMBooksCollectionCard");
                 });
 
+            modelBuilder.Entity("Database.Data.MobileApp.BookBookcases", b =>
+                {
+                    b.HasOne("Database.Data.BookStructure.Book", "Book")
+                        .WithMany("BookBookcases")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Database.Data.MobileApp.Bookcase", "Bookcases")
+                        .WithMany("BookBookcases")
+                        .HasForeignKey("BookcasesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Bookcases");
+                });
+
             modelBuilder.Entity("Database.Data.MobileApp.DetailBookMobilePage", b =>
                 {
                     b.HasOne("Database.Data.BookStructure.Book", "Book")
@@ -345,6 +433,8 @@ namespace Database.Migrations
 
             modelBuilder.Entity("Database.Data.BookStructure.Book", b =>
                 {
+                    b.Navigation("BookBookcases");
+
                     b.Navigation("BookCollections");
 
                     b.Navigation("DetailBookMobilePages");
@@ -362,6 +452,11 @@ namespace Database.Migrations
                     b.Navigation("BookCollections");
 
                     b.Navigation("RandomCollectionsMobilePage");
+                });
+
+            modelBuilder.Entity("Database.Data.MobileApp.Bookcase", b =>
+                {
+                    b.Navigation("BookBookcases");
                 });
 #pragma warning restore 612, 618
         }

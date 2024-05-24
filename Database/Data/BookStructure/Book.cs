@@ -47,6 +47,9 @@ public class Book
 
     public List<BookCollection> BookCollections { get; } = [];
     public List<Collection> Collections { get; } = [];
+    
+    public List<BookBookcases> BookBookcases { get; } = [];
+    public List<Bookcase> Bookcases { get; } = [];
 
     #endregion
 

@@ -48,7 +48,8 @@ public partial class MainPageViewModel: ObservableObject
                 BookTitle = item.Book.Title,
                 BookDescription = item.Book.Description,
                 SmallCoverImg = item.Book.Image,
-                BookId = item.BookId
+                BookId = item.BookId,
+                Author = $"{item.Book.Author.Name} {item.Book.Author.Surname}"
             });
            
         }

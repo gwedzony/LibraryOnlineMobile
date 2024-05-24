@@ -53,6 +53,9 @@ public class DatabaseContext() : DbContext
         modelBuilder.Entity<Book>()
             .HasMany(b => b.Collections)
             .WithMany(c => c.Books);
+        modelBuilder.Entity<Bookcase>()
+            .HasMany(b => b.Books)
+            .WithMany(c => c.Bookcases);
 
     }
 

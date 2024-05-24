@@ -22,6 +22,7 @@ namespace MobileAPI.Controller
         {
             return await _context.LatestMobileBooksCard
                 .Include(b=>b.Book)
+                .ThenInclude(a=>a.Author)
                 .ToListAsync();
         }
 

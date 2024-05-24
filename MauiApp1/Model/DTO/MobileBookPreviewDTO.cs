@@ -9,4 +9,5 @@ public class MobileBookPreviewDTO
     public string BookTitle { get; set; } 
     public int BookId { get; set; } 
     public string BookDescription { get; set; } 
+    public string Author{get; set; }
 }

@@ -12,8 +12,9 @@
         <viewModel:MainPageViewModel />
     </ContentPage.BindingContext>
 
-    <Grid RowDefinitions="0.05*, 0.1*, 0.45*, 0.05*, 0.05*">
+    <Grid RowDefinitions="0.15*, 0.1*, 0.9*, 0.05*, 0.05*">
         <Label FontSize="26"
+               Margin="0,50,0,0"
                HorizontalOptions="Center"
                FontAttributes="Bold"
                Text="Biblioteka"
@@ -22,12 +23,14 @@
 
         <CollectionView Grid.Row="2"
                         ItemsSource="{Binding MobileBookPreviews}"
-                        Margin="20,-100,0,0"
+                        Margin="30"
+                        ItemSizingStrategy="MeasureFirstItem"
                         HorizontalScrollBarVisibility="Never"
                         >
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="25"
-                                   Orientation="Horizontal" />
+                                   Orientation="Horizontal"
+                                   SnapPointsType="MandatorySingle"/>
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
@@ -35,12 +38,12 @@
                     <Grid>
                         <Border Grid.RowSpan="3"
                                 BackgroundColor="#311b45"
-                                HeightRequest="300"
+                                HeightRequest="350"
                                 Stroke="#6e557c"
                                 StrokeShape="RoundRectangle 30,30,30,30"
                                 StrokeThickness="2"
-                                WidthRequest="300">
-                            <Grid RowDefinitions="0.2*, 0.6*, 2*">
+                                WidthRequest="320">
+                            <Grid RowDefinitions="0.4*, 2.5*, 0.6*">
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer 
                                     Command="{Binding 
@@ -50,25 +53,21 @@
                                     CommandParameter="{Binding BookId}"
                                     NumberOfTapsRequired="1" />
                             </Grid.GestureRecognizers>
-                                <Frame Grid.RowSpan="3" CornerRadius="20" HasShadow="False" Padding="0">
-                                    <Image Aspect="AspectFill"
+                                <VerticalStackLayout Grid.Row="0" Margin="20,0,0,15" VerticalOptions="End">
+                                    <Label FontSize="19"
+                                           Text="{Binding Author}"
+                                           TextColor="White"
+                                           VerticalOptions="End"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center" />
+                                </VerticalStackLayout>
+                                <Frame Grid.Row="1" HasShadow="False" Padding="0" BackgroundColor="#0D0118" >
+                                    <Image Aspect="AspectFit"
                                            Source="{Binding SmallCoverImg}"
-                                           HorizontalOptions="FillAndExpand"
-                                           VerticalOptions="FillAndExpand" />
+                                           WidthRequest="300"
+                                           HeightRequest="270"
+                                           />
                                 </Frame>
-
-                                <RoundRectangle Grid.RowSpan="3"
-                                                CornerRadius="30"
-                                                HeightRequest="300"
-                                                WidthRequest="300"
-                                                Opacity="0.7">
-                                    <RoundRectangle.Fill>
-                                        <LinearGradientBrush EndPoint="0,1">
-                                            <GradientStop Offset="0" Color="Transparent" />
-                                            <GradientStop Offset="1" Color="#030005" />
-                                        </LinearGradientBrush>
-                                    </RoundRectangle.Fill>
-                                </RoundRectangle>
 
                                 <VerticalStackLayout Grid.Row="2" Margin="20,0,0,15" VerticalOptions="End">
                                     <Label FontSize="19"
@@ -79,13 +78,7 @@
                                            HorizontalOptions="Center" />
                                 </VerticalStackLayout>
                             </Grid>
-
-                            <Border.Shadow>
-                                <Shadow Brush="#C283FD"
-                                        Opacity="0.2"
-                                        Radius="55"
-                                        Offset="0,0" />
-                            </Border.Shadow>
+                           
                         </Border>
                     </Grid>
                 </DataTemplate>
