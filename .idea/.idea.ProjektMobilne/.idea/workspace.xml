@@ -13,16 +13,21 @@
     <projectFile profileName="IIS Express">MobileAPI/MobileAPI.csproj</projectFile>
     <projectFile profileName="http">MobileAPI/MobileAPI.csproj</projectFile>
     <projectFile profileName="https">MobileAPI/MobileAPI.csproj</projectFile>
-    <projectFile kind="XamarinAndroid">MobileAppMAUI/MobileAppMAUI.csproj</projectFile>
-    <projectFile kind="XamarinIOS">MobileAppMAUI/MobileAppMAUI.csproj</projectFile>
-    <projectFile kind="XamarinMacOS">MobileAppMAUI/MobileAppMAUI.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="015bb8e0-2fa3-4b8c-ae4a-873512606eea" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjektMobilne/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjektMobilne/.idea/libraries/dxcore.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjektMobilne/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjektMobilne/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjektMobilne/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjektMobilne/.idea/workspace.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/HomePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/HomePage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/ViewAll.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/ViewAll.xaml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/MauiApp1/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/AppShell.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/MauiApp1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/MauiApp1.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/Model/DTO/BookcasesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Model/DTO/BookcasesDTO.cs" afterDir="false" />
@@ -32,6 +37,7 @@
       <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditPopup.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditPopup.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/ViewModel/BookcasesViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/ViewModel/BookcasesViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/ViewModel/MainPageViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/ViewModel/MainPageViewModel.cs" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +47,14 @@
   <component name="DpaMonitoringSettings">
     <option name="autoShow" value="false" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="HighlightingSettingsPerFile">
+
+    <setting file="file://$USER_HOME$/.nuget/packages/microsoft.windowsappsdk/1.5.240311000/include/DeploymentManagerAutoInitializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/.nuget/packages/microsoft.windowsappsdk/1.5.240311000/include/WindowsAppSDK-VersionInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Database/bin/Debug/net8.0/Database.deps.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MauiApp1/Platforms/Android/MainActivity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MauiApp1/Platforms/iOS/Program.cs" root0="SKIP_HIGHLIGHTING" />
+
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2a4dad19c64a4f1a994732eaf2de348efb20/0c/2d524825/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2a4dad19c64a4f1a994732eaf2de348efb20/57/163d7341/ServiceProviderServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88f837dd59d946d38476b3b0b746e5dec28a00/c1/e049869a/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -79,6 +89,7 @@
     <setting file="file://$PROJECT_DIR$/MobileAPI/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MobileAPI/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MobileAPI/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+
   </component>
   <component name="InvalidFacetManager">
     <ignored-facets>
@@ -93,9 +104,7 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2gCJjdSCSR2nmgHqCekbPEbLEd1" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -104,6 +113,13 @@
   &quot;keyToString&quot;: {
     &quot;.NET Launch Settings Profile.MauiApp1: Windows Machine.executor&quot;: &quot;Run&quot;,
     &quot;.NET Launch Settings Profile.MobileAPI: IIS Express.executor&quot;: &quot;Run&quot;,
+
+    &quot;.NET Launch Settings Profile.MobileAPI: http.executor&quot;: &quot;Debug&quot;,
+    &quot;Android.MauiApp1.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UWP.MauiApp1.executor&quot;: &quot;Run&quot;,
+    &quot;iOS.MauiApp1.executor&quot;: &quot;Run&quot;,
+
     &quot;.NET Launch Settings Profile.MobileAPI: http.executor&quot;: &quot;Run&quot;,
     &quot;Android.MauiApp1.executor&quot;: &quot;Run&quot;,
     &quot;Device#class com.jetbrains.rider.run.multiPlatform.ios.devices.IOSSimulatorKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider#iOS: MauiApp1&quot;: &quot;iPhone 15 (iOS 17.4)&quot;,
@@ -114,6 +130,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;iOS.MauiApp1.executor&quot;: &quot;Debug&quot;,
     &quot;macOS.MauiApp1.executor&quot;: &quot;Debug&quot;,
+
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -125,6 +142,15 @@
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
+
+      &quot;C:\\Users\\PC\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\PC\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\PC\\AppData\\Local\\Symbols\\src&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager" selected="UWP.MauiApp1">
+
       &quot;/Users/grzesiek/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
       &quot;/Users/grzesiek/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
       &quot;/Users/grzesiek/Library/Application Support/Symbols/src&quot;
@@ -132,6 +158,7 @@
   }
 }</component>
   <component name="RunManager" selected="iOS.MauiApp1">
+
     <configuration name="MauiApp1: Windows Machine" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MauiApp1/MauiApp1.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0-ios" />
@@ -300,11 +327,16 @@
       <workItem from="1716477135598" duration="1115000" />
       <workItem from="1716478275093" duration="61000" />
       <workItem from="1716478347058" duration="137000" />
+
+      <workItem from="1716478501924" duration="10623000" />
+      <workItem from="1716618478576" duration="9797000" />
+
       <workItem from="1716478501924" duration="10245000" />
       <workItem from="1716528170571" duration="3899000" />
       <workItem from="1716533000980" duration="306000" />
       <workItem from="1716570129179" duration="12831000" />
       <workItem from="1716617823188" duration="2496000" />
+
     </task>
     <task id="LOCAL-00001" summary="Dodanie kodu str.Głownej">
       <option name="closed" value="true" />
