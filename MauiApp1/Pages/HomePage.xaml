@@ -1,73 +1,86 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:md="clr-namespace:Material;assembly=Material.Components.Maui"
              xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
-             xmlns:dataAnnotations="clr-namespace:System.ComponentModel.DataAnnotations;assembly=System.ComponentModel.Annotations"
              x:Class="MauiApp1.Pages.HomePage"
              BackgroundColor="#0D0118">
 
     <ContentPage.BindingContext>
         <viewModel:MainPageViewModel />
     </ContentPage.BindingContext>
+    
+    <Grid BackgroundColor="#0D0118">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="340" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="130" />
+            <RowDefinition Height="5" />
+        </Grid.RowDefinitions>
 
-    <Grid RowDefinitions="0.15*, 0.1*, 0.9*, 0.05*, 0.05*">
         <Label FontSize="26"
-               Margin="0,50,0,0"
                HorizontalOptions="Center"
-               FontAttributes="Bold"
                Text="Biblioteka"
+               FontAttributes="Bold"
                TextColor="White"
-               VerticalOptions="Center" />
+               VerticalOptions="Center" 
+               Grid.Row="0"/>
 
-        <CollectionView Grid.Row="2"
+        <VerticalStackLayout Grid.Row="1" Margin="20,0,20,2">
+            <Label FontSize="20"
+                   HorizontalOptions="Start"
+                   Text="Książki"
+                   TextColor="White"
+                   VerticalOptions="Center"/>
+            <BoxView HeightRequest="1"
+                     BackgroundColor="White"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="End"/>
+        </VerticalStackLayout>
+        
+        <CollectionView Grid.Row="3"
                         ItemsSource="{Binding MobileBookPreviews}"
-                        Margin="30"
-                        ItemSizingStrategy="MeasureFirstItem"
+                        Margin="20,0,20,0"
+                        HeightRequest="300"
                         HorizontalScrollBarVisibility="Never"
-                        >
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="25"
-                                   Orientation="Horizontal"
-                                   SnapPointsType="MandatorySingle"/>
+                                   Orientation="Horizontal" />
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Border Grid.RowSpan="3"
-                                BackgroundColor="#311b45"
-                                HeightRequest="350"
-                                Stroke="#6e557c"
+                        <Border Stroke="#6E557C"
                                 StrokeShape="RoundRectangle 30,30,30,30"
                                 StrokeThickness="2"
-                                WidthRequest="320">
-                            <Grid RowDefinitions="0.4*, 2.5*, 0.6*">
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer 
-                                    Command="{Binding 
-                                    Source={RelativeSource 
-                                    AncestorType={x:Type viewModel:MainPageViewModel}},
-                                    Path=TapCommand}"
-                                    CommandParameter="{Binding BookId}"
-                                    NumberOfTapsRequired="1" />
-                            </Grid.GestureRecognizers>
-                                <VerticalStackLayout Grid.Row="0" Margin="20,0,0,15" VerticalOptions="End">
-                                    <Label FontSize="19"
-                                           Text="{Binding Author}"
-                                           TextColor="White"
-                                           VerticalOptions="End"
-                                           FontAttributes="Bold"
-                                           HorizontalOptions="Center" />
-                                </VerticalStackLayout>
-                                <Frame Grid.Row="1" HasShadow="False" Padding="0" BackgroundColor="#0D0118" >
-                                    <Image Aspect="AspectFit"
+                                WidthRequest="300"
+                                HeightRequest="300">
+                            <Grid RowDefinitions="0.2*, 0.6*, 2*">
+
+                                <Frame Grid.RowSpan="3" CornerRadius="20" HasShadow="True" Padding="0">
+                                    <Image Aspect="AspectFill"
                                            Source="{Binding SmallCoverImg}"
-                                           WidthRequest="300"
-                                           HeightRequest="270"
-                                           />
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="FillAndExpand" />
                                 </Frame>
+
+                                <RoundRectangle Grid.RowSpan="3"
+                                                CornerRadius="30"
+                                                HeightRequest="300"
+                                                WidthRequest="300"
+                                                Opacity="0.7">
+                                    <RoundRectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Offset="0" Color="Transparent" />
+                                            <GradientStop Offset="1" Color="#030005" />
+                                        </LinearGradientBrush>
+                                    </RoundRectangle.Fill>
+                                </RoundRectangle>
 
                                 <VerticalStackLayout Grid.Row="2" Margin="20,0,0,15" VerticalOptions="End">
                                     <Label FontSize="19"
@@ -77,22 +90,105 @@
                                            FontAttributes="Bold"
                                            HorizontalOptions="Center" />
                                 </VerticalStackLayout>
+
                             </Grid>
-                           
+
+                            <Border.Shadow>
+                                <Shadow Brush="#C283FD"
+                                        Opacity="0.2"
+                                        Radius="55"
+                                        Offset="0,0" />
+                            </Border.Shadow>
                         </Border>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        
+        <VerticalStackLayout Grid.Row="4" Margin="20,0,20,2">
+            <Label FontSize="20"
+                   HorizontalOptions="Start"
+                   Text="Autorzy"
+                   TextColor="White"
+                   VerticalOptions="Center"/>
+            <BoxView HeightRequest="1"
+                     BackgroundColor="White"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="End"/>
+        </VerticalStackLayout>
+        
+         <CollectionView Grid.Row="5"
+                        ItemsSource="{Binding MobileBookPreviews}"
+                        Margin="20,0,20,0"
+                        HeightRequest="130"
+                        HorizontalScrollBarVisibility="Never"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="25"
+                                   Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
 
-        <IndicatorView x:Name="IndicatorView"
-                       Grid.Row="4"
-                       HorizontalOptions="Center"
-                       IndicatorColor="#616161"
-                       IndicatorSize="15"
-                       SelectedIndicatorColor="White"
-                       VerticalOptions="End"
-                       Margin="0,-40,0,0" />
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border Stroke="#6E557C"
+                                StrokeShape="RoundRectangle 30,30,30,30"
+                                StrokeThickness="2"
+                                WidthRequest="130"
+                                HeightRequest="130">
+                            <Grid RowDefinitions="0.2*, 0.6*, 2*">
+
+                                <Frame Grid.RowSpan="3" CornerRadius="20" HasShadow="True" Padding="0">
+                                    <Image Aspect="AspectFill"
+                                           Source="{Binding SmallCoverImg}"
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="FillAndExpand" />
+                                </Frame>
+
+                                <RoundRectangle Grid.RowSpan="3"
+                                                CornerRadius="30"
+                                                HeightRequest="130"
+                                                WidthRequest="130"
+                                                Opacity="0.7">
+                                    <RoundRectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Offset="0" Color="Transparent" />
+                                            <GradientStop Offset="1" Color="#030005" />
+                                        </LinearGradientBrush>
+                                    </RoundRectangle.Fill>
+                                </RoundRectangle>
+
+                                <VerticalStackLayout Grid.Row="2" Margin="20,0,0,15" VerticalOptions="End">
+                                    <Label FontSize="19"
+                                           Text="{Binding BookTitle}"
+                                           TextColor="White"
+                                           VerticalOptions="End"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center" />
+                                </VerticalStackLayout>
+
+                            </Grid>
+
+                            <Border.Shadow>
+                                <Shadow Brush="#C283FD"
+                                        Opacity="0.2"
+                                        Radius="55"
+                                        Offset="0,0" />
+                            </Border.Shadow>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        
+        
+        
+        
+        
+        
 
     </Grid>
+
 </ContentPage>

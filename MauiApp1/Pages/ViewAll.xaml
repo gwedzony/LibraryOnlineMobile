@@ -10,9 +10,10 @@
     </ContentPage.BindingContext>
     
     <Grid RowDefinitions=".2*,.8*">
-        <VerticalStackLayout Spacing="10">
+        <VerticalStackLayout Spacing="26">
             <Label Margin="0,25,0,0" FontAttributes="Bold" 
-                   Text="Przegladaj autorów"
+                   Text="Autorzy"
+                   FontSize="26"
                    TextColor="White"
                    HorizontalOptions="Center"/>
             
@@ -35,18 +36,16 @@
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="20" Orientation="Vertical"/>
             </CollectionView.ItemsLayout>
+            
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Border BackgroundColor="#F2F1F6" Stroke="#311b45" StrokeThickness="2" Margin="0,20,0,0" Padding="0">
+                    <Border BackgroundColor="Transparent" Stroke="#6E557C" StrokeThickness="2" Margin="0,20,0,0" Padding="0">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20"/>
                         </Border.StrokeShape>
-                        <Border.Shadow>
-                            <Shadow Brush="#311b45"
-                                    Opacity="0.7"
-                                    Radius="10"
-                                    Offset="0,0"/>
-                        </Border.Shadow>
+                           
+                        
+                        
                         <Grid HeightRequest="350" Margin="20">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
@@ -54,7 +53,7 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             
-                            <Border Stroke="#311b45" StrokeThickness="2" >
+                            <Border Stroke="#6E557C" StrokeThickness="4" >
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="20"/>
                                 </Border.StrokeShape>
@@ -69,14 +68,14 @@
                             </Border>
 
                             
-                            <!-- Imię i nazwisko autora -->
+                           
                             <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center">
-                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                <Label Text="{Binding Surname}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" Margin="5,0,0,0"/>
+                                <Label TextColor="White" Text="{Binding Name}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label  TextColor="White" Text="{Binding Surname}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" Margin="5,0,0,0"/>
                             </HorizontalStackLayout>
         
-                            <!-- Opis -->
-                            <Label Grid.Row="2" Text="{Binding Description}" FontSize="16" Margin="10" />
+                           
+                            <Label Grid.Row="2" TextColor="White"  Text="{Binding Description}" FontSize="16" Margin="10" />
                         </Grid>
                     </Border>
                 </DataTemplate>
