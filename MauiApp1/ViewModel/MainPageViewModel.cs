@@ -34,7 +34,7 @@ public partial class MainPageViewModel: ObservableObject
         GetPreviewsFromApi();
     }
 
-    private async Task GetPreviewsFromApi()
+   public async Task GetPreviewsFromApi()
     {
         
         List<LatestMobileBooksCard> list = await _service.GetItems();

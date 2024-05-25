@@ -87,9 +87,5 @@
         <SubType>Code</SubType>
       </Compile>
     </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Pages\Shared\" />
-    </ItemGroup>
  
 </Project>
