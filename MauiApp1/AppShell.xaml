@@ -26,6 +26,12 @@
                 ContentTemplate="{DataTemplate local:DetailsPage}"
                 Route="DetailsPage" />
         </Tab>
+        <Tab Title="Biblioteczka" Icon="book.png">
+            <ShellContent
+                Title="Biblioteczka"
+                ContentTemplate="{DataTemplate local:BookcasesPage}"
+                Route="BookcasesPage" />
+        </Tab>
        
     </TabBar>
 
