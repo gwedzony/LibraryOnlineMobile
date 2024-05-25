@@ -61,7 +61,15 @@
                                 WidthRequest="300"
                                 HeightRequest="300">
                             <Grid RowDefinitions="0.2*, 0.6*, 2*">
-
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding 
+                                    Source={RelativeSource 
+                                    AncestorType={x:Type viewModel:MainPageViewModel}},
+                                    Path=TapCommand}"
+                                        CommandParameter="{Binding BookId}"
+                                        NumberOfTapsRequired="1" />
+                                </Grid.GestureRecognizers>
                                 <Frame Grid.RowSpan="3" CornerRadius="20" HasShadow="True" Padding="0">
                                     <Image Aspect="AspectFill"
                                            Source="{Binding SmallCoverImg}"
@@ -161,7 +169,7 @@
 
                                 <VerticalStackLayout Grid.Row="2" Margin="20,0,0,15" VerticalOptions="End">
                                     <Label FontSize="19"
-                                           Text="{Binding BookTitle}"
+                                           Text="{Binding Author}"
                                            TextColor="White"
                                            VerticalOptions="End"
                                            FontAttributes="Bold"
