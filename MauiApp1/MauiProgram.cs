@@ -4,6 +4,7 @@ using Material.Components.Maui.Extensions;
 using MauiIcons.FontAwesome;
 using CommunityToolkit.Maui;
 using MauiApp1.Pages;
+using MauiApp1.Pages.Shared;
 using MauiApp1.ViewModel;
 using MauiIcons.Material;
 using Microsoft.Maui.Controls.Hosting;
@@ -19,13 +20,20 @@ public static class MauiProgram
         {
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-        }).UseMauiCommunityToolkit();
+        }).UseMauiCommunityToolkit().UseMaterialMauiIcons();
 
         builder.Services.AddSingleton<MainPageViewModel>();
         builder.Services.AddSingleton<HomePage>();
         
         builder.Services.AddTransient<DetailPageViewModel>();
         builder.Services.AddTransient<DetailsPage>();
+
+        builder.Services.AddSingleton<BookcasesViewModel>();
+        builder.Services.AddSingleton<BookcasesPage>();
+
+        builder.Services.AddTransient<PickABookcase,BookcasesViewModel>() ;
+        
+       
         
 #if DEBUG
         builder.Logging.AddDebug();

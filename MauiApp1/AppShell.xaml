@@ -3,30 +3,25 @@
     x:Class="MauiApp1.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
     xmlns:local="clr-namespace:MauiApp1.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="MauiApp1">
     
     <TabBar>
-        <Tab Title="Home" Icon="home.png">
+        <Tab Title="Home" Icon="{mi:Material Icon=Home,IconColor=Black}">
             <ShellContent
                 Title="Home"
                 ContentTemplate="{DataTemplate local:HomePage}"
                 Route="HomePage" />
         </Tab>
-        <Tab Title="Autorzy" Icon="writer.png">
+        <Tab Title="Autorzy" Icon="{mi:Material Icon=AccountBox,IconColor=Black}">
             <ShellContent
                 Title="Autorzy"
                 ContentTemplate="{DataTemplate local:ViewAll}"
                 Route="ViewAll" />
         </Tab>
-        <Tab Title="Kolekcje" Icon="newest.png">
-            <ShellContent
-                Title="Kolekcje"
-                ContentTemplate="{DataTemplate local:DetailsPage}"
-                Route="DetailsPage" />
-        </Tab>
-        <Tab Title="Biblioteczka" Icon="book.png">
+        <Tab Title="Biblioteczka" Icon="{mi:Material Icon=LocalLibrary,IconColor=Black}">
             <ShellContent
                 Title="Biblioteczka"
                 ContentTemplate="{DataTemplate local:BookcasesPage}"

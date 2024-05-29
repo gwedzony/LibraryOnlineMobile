@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Pages.HomePage"
              BackgroundColor="#0D0118">
@@ -190,13 +191,6 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         
-        
-        
-        
-        
-        
-        
-
     </Grid>
 
 </ContentPage>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
+               xmlns:popups="clr-namespace:MauiApp1.Pages.Shared"
+               x:Class="MauiApp1.Pages.Shared.EditNamePopup">
+
+    <toolkit:Popup.Resources>
+        <Style TargetType="{x:Type popups:EditNamePopup}">
+            <Setter Property="Size" Value="300,170" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Start" />
+            <Setter Property="CanBeDismissedByTappingOutsideOfPopup" Value="True" />
+        </Style>
+    </toolkit:Popup.Resources>
+    
+    
+    <StackLayout>
+        <Label Text="Wybierz do ktorej biblioteki chcesz dodać" />
+        <Picker ItemsSource="{Binding BookcaseDtos}"></Picker>
+        <Button Text="Zapisz" 
+                Command="{Binding NameChangeCommand}"
+                Clicked="Button_OnClicked"
+                />
+
+    </StackLayout>
+
+</toolkit:Popup>

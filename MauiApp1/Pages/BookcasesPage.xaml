@@ -1,56 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Pages.BookcasesPage"
-             BackgroundColor="#0D0118">
+             BackgroundColor="#0D0118"
+             Padding="0,0,0,60">
     <ContentPage.BindingContext>
-        <viewModel:BookcasesViewModel/>
+        <viewModel:BookcasesViewModel />
     </ContentPage.BindingContext>
-
-    <ContentPage.Content>
-        <StackLayout Padding="10" Spacing="10">
-            <Label TextColor="White" Text="KOSZYK" FontSize="24" HorizontalOptions="Center" Margin="0,10"/>
-            <Grid ColumnDefinitions="*, Auto">
-                <Label TextColor="White" Text="Produkty" FontSize="18" Margin="0,10,0,0"/>
-                <ImageButton Grid.Column="1" Source="editing.png" Scale="1" Clicked="ImageButton_OnClicked" VerticalOptions="Center" />
-            </Grid>
-            <BoxView HeightRequest="1" BackgroundColor="White" Margin="0,5"/>
-
-            <CollectionView ItemsSource="{Binding BookcasesDtos}">
+    
+            <CollectionView ItemsSource="{Binding BookcasesDtos}" ItemSizingStrategy="MeasureFirstItem"> 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Border Margin="15" BackgroundColor="#311b45" Stroke="#6e557c" StrokeThickness="2">
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="10,10,10,10" />
-                            </Border.StrokeShape>
-                            
-                            <Grid ColumnDefinitions="80,*,50,50" VerticalOptions="Center" Padding="10">
-                                <!-- Kolumna 1: Zdjęcie -->
-                                <Frame BorderColor="Green" Padding="0" Margin="0,0,10,0" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="60" HeightRequest="60">
-                                    <Image Source="okladka.jpg" Aspect="AspectFill" />
-                                </Frame>
+                        <Grid RowDefinitions="35,5,Auto" Margin="15">
+                            <Label Grid.Row="0" TextColor="White" Text="{Binding Name }" FontSize="18"
+                                   Margin="0,15,0,0"  VerticalOptions="Start" />
+                            <ImageButton Grid.Row="0" Source="{mi:Material Icon=Edit}" Scale="0.5"
+                                       Clicked="ImageButton_OnClicked"
+                                       VerticalOptions="Center" HorizontalOptions="End" 
+                                       Margin="0,0,25,0" />
+                            <ImageButton Grid.Row="0" Source="{mi:Material Icon=Visibility}" Scale="0.5"
+                                         VerticalOptions="Center" HorizontalOptions="End"   Margin="0,0,0,0" />
+                            <BoxView Grid.Row="1" HeightRequest="1" BackgroundColor="White" Margin="0,5"  />
 
-                                <!-- Kolumna 2: Tytuł książki i autor (jeden pod drugim) -->
-                                <StackLayout Grid.Column="1" Orientation="Vertical" VerticalOptions="Center">
-                                    <Label TextColor="White" Text="Name" FontAttributes="Bold" FontSize="16" Margin="10,0,0,0"/>
-                                    <Label Text="Author" FontAttributes="Italic" FontSize="14" TextColor="Gray" Margin="10,0,0,0"/>
-                                </StackLayout>
+                            <CollectionView  Grid.Row="2" ItemsSource="{Binding Book}" >
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Margin="15" BackgroundColor="#311b45" Stroke="#6e557c"
+                                                StrokeThickness="2" >
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="10,10,10,10" />
+                                            </Border.StrokeShape>
 
-                                <!-- Kolumna 3: Dodatkowy przycisk -->
-                                <ImageButton Grid.Column="2" Source="play.png" BackgroundColor="Gray" CornerRadius="15" WidthRequest="20" HeightRequest="20"
-                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:BookcasesViewModel}}, Path=AnotherCommand}"
-                                             CommandParameter="{Binding Id}" HorizontalOptions="End" VerticalOptions="Center" Scale="0.5" />
+                                            <Grid ColumnDefinitions="80,*,50,50" VerticalOptions="Center" Padding="10">
+                                                <!-- Kolumna 1: Zdjęcie -->
+                                                <Frame BorderColor="Green" Padding="0" Margin="0,0,10,0"
+                                                       HorizontalOptions="Start" VerticalOptions="Center"
+                                                       WidthRequest="60" HeightRequest="60">
+                                                    <Image Source="okladka.jpg" Aspect="AspectFill" />
+                                                </Frame>
 
-                                <!-- Kolumna 4: Przycisk usuwania -->
-                                <ImageButton Grid.Column="3" Source="delete.png" BackgroundColor="Red" CornerRadius="15" WidthRequest="20" HeightRequest="20" 
-                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:BookcasesViewModel}}, Path=DeleteCommand}"
-                                             CommandParameter="{Binding Id}" HorizontalOptions="End" VerticalOptions="Center" Scale="0.5" />
-                            </Grid>
-                        </Border>
+                                                <!-- Kolumna 2: Tytuł książki i autor (jeden pod drugim) -->
+                                                <StackLayout Grid.Column="1" Orientation="Vertical"
+                                                             VerticalOptions="Center">
+                                                    <Label TextColor="White" Text="Name" FontAttributes="Bold"
+                                                           FontSize="16" Margin="10,0,0,0" />
+                                                    <Label Text="Author" FontAttributes="Italic" FontSize="14"
+                                                           TextColor="Gray" Margin="10,0,0,0" />
+                                                </StackLayout>
+
+                                                <!-- Kolumna 3: Dodatkowy przycisk -->
+                                                <ImageButton Grid.Column="2" Source="{mi:Material Icon=PlayCircle}" 
+                                                             Scale="0.5" />
+
+                                                <!-- Kolumna 4: Przycisk usuwania -->
+                                                <ImageButton Grid.Column="3" Source="{mi:Material Icon=DeleteForever}" 
+                                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:BookcasesViewModel}}, Path=DeleteCommand}"
+                                                             VerticalOptions="Center" Scale="0.5" >
+                                                    <ImageButton.CommandParameter>
+                                                        <MultiBinding Converter="{StaticResource MultipleCommand}">
+                                                            <Binding Path="Id"
+                                                                     />
+                                                            <Binding 
+                                                                Source="{RelativeSource AncestorType={x:Type CollectionView}}" 
+                                                                 Path="BindingContext.Id"/>
+                                                        </MultiBinding>
+                                                    </ImageButton.CommandParameter>
+                                                </ImageButton>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </StackLayout>
-    </ContentPage.Content>
 </ContentPage>

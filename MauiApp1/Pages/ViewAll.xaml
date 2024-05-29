@@ -23,8 +23,8 @@
                         <RoundRectangle CornerRadius="8"/>
                     </Border.StrokeShape>
                     <Grid ColumnDefinitions=".1*,.9*">
-                        <Entry Grid.Column="1" FontFamily="bold" 
-                               Placeholder="Search ..." 
+                        <Entry Grid.Column="1" 
+                                                       Placeholder="Search ..." 
                                PlaceholderColor="#9D9D9D" 
                                TextColor="White"/>
                     </Grid>

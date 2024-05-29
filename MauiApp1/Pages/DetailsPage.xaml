@@ -1,5 +1,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Pages.DetailsPage"
              BackgroundColor="#0D0118"
@@ -38,21 +39,30 @@
         <Frame Grid.Row="1" Margin="5" CornerRadius="8" BackgroundColor="#311b45">
             <StackLayout Padding="15">
                 <!-- Title -->
-                <Label Text="• Title" TextColor="White" FontSize="15" FontAttributes="Bold"/>
+                <Label Text="• Tytuł" TextColor="White" FontSize="15" FontAttributes="Bold"/>
                 <Label Text="{Binding Title}" TextColor="{StaticResource LightGray}" FontSize="14" Margin="5,0,0,10"/>
                 <BoxView Color="#6e557c" HeightRequest="1" Margin="0,5,0,10"/>
                 
                 <!-- Author -->
-                <Label Text="• Author" TextColor="White" FontSize="15" FontAttributes="Bold"/>
+                <Label Text="• Autor" TextColor="White" FontSize="15" FontAttributes="Bold"/>
                 <Label Text="{Binding Author}" TextColor="{StaticResource LightGray}" FontSize="14" Margin="5,0,0,10"/>
                 <BoxView Color="#6e557c" HeightRequest="1" Margin="0,5,0,10"/>                
 
 
                 <!-- Description -->
-                <Label Text="• Description" TextColor="White" FontSize="15" FontAttributes="Bold"/>
+                <Label Text="• Opis" TextColor="White" FontSize="15" FontAttributes="Bold"/>
                 <Label Text="{Binding Description}" TextColor="{StaticResource LightGray}" FontSize="14" Margin="5,0,0,10"/>
-                <BoxView Color="#6e557c" HeightRequest="1" Margin="0,5,0,10"/>
-                
+                <BoxView Color="#0D0118" HeightRequest="1" Margin="0,5,0,10"/>
+                <Button Text="Dodaj do biblioteczki" BackgroundColor="#6e557c" Margin="0,20,0,0"
+                        Clicked="Button_OnClicked"
+                        >
+                    <Image.Shadow>
+                        <Shadow
+                            Brush="#0D0118"
+                            Opacity="0.8"
+                            />
+                    </Image.Shadow>
+                </Button>
             </StackLayout>
         </Frame>
       
