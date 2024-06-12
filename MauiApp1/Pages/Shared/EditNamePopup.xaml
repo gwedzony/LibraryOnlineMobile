@@ -18,12 +18,11 @@
     
     
     <StackLayout>
-        <Label Text="Wybierz do ktorej biblioteki chcesz dodać" />
-        <Picker ItemsSource="{Binding BookcaseDtos}"></Picker>
+        <Entry Text="{Binding NewNameFromPrompt}"></Entry>
         <Button Text="Zapisz" 
                 Command="{Binding NameChangeCommand}"
                 Clicked="Button_OnClicked"
-                />
+        />
 
     </StackLayout>
 

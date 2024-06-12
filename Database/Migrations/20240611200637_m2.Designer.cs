@@ -11,31 +11,16 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240524171527_MobileBookcases")]
-    partial class MobileBookcases
+    [Migration("20240611200637_m2")]
+    partial class m2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("BookBookcase", b =>
-                {
-                    b.Property<int>("BookcasesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BooksId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BookcasesId", "BooksId");
-
-                    b.HasIndex("BooksId");
-
-                    b.ToTable("BookBookcase");
-                });
 
             modelBuilder.Entity("BookCollection", b =>
                 {
@@ -93,6 +78,9 @@ namespace Database.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("BookCaseId")
+                        .HasColumnType("int");
+
                     b.Property<int>("BookGenreId")
                         .HasColumnType("int");
 
@@ -114,6 +102,8 @@ namespace Database.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
+
+                    b.HasIndex("BookCaseId");
 
                     b.HasIndex("BookGenreId");
 
@@ -183,27 +173,6 @@ namespace Database.Migrations
                     b.ToTable("Collections");
                 });
 
-            modelBuilder.Entity("Database.Data.MobileApp.BookBookcases", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BookcasesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("BookcasesId");
-
-                    b.ToTable("BookBookcases");
-                });
-
             modelBuilder.Entity("Database.Data.MobileApp.Bookcase", b =>
                 {
                     b.Property<int>("Id")
@@ -216,7 +185,7 @@ namespace Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Bookcase");
+                    b.ToTable("Bookcases");
                 });
 
             modelBuilder.Entity("Database.Data.MobileApp.DetailBookMobilePage", b =>
@@ -287,21 +256,6 @@ namespace Database.Migrations
                     b.ToTable("RandomMBooksCollectionCards");
                 });
 
-            modelBuilder.Entity("BookBookcase", b =>
-                {
-                    b.HasOne("Database.Data.MobileApp.Bookcase", null)
-                        .WithMany()
-                        .HasForeignKey("BookcasesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Database.Data.BookStructure.Book", null)
-                        .WithMany()
-                        .HasForeignKey("BooksId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("BookCollection", b =>
                 {
                     b.HasOne("Database.Data.BookStructure.Book", null)
@@ -325,6 +279,10 @@ namespace Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Database.Data.MobileApp.Bookcase", "Bookcase")
+                        .WithMany("Books")
+                        .HasForeignKey("BookCaseId");
+
                     b.HasOne("Database.Data.BookStructure.BookGenre", "BookGenre")
                         .WithMany("Books")
                         .HasForeignKey("BookGenreId")
@@ -334,6 +292,8 @@ namespace Database.Migrations
                     b.Navigation("Author");
 
                     b.Navigation("BookGenre");
+
+                    b.Navigation("Bookcase");
                 });
 
             modelBuilder.Entity("Database.Data.BookStructure.BookCollection", b =>
@@ -359,25 +319,6 @@ namespace Database.Migrations
                     b.Navigation("Collection");
 
                     b.Navigation("RandomMBooksCollectionCard");
-                });
-
-            modelBuilder.Entity("Database.Data.MobileApp.BookBookcases", b =>
-                {
-                    b.HasOne("Database.Data.BookStructure.Book", "Book")
-                        .WithMany("BookBookcases")
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Database.Data.MobileApp.Bookcase", "Bookcases")
-                        .WithMany("BookBookcases")
-                        .HasForeignKey("BookcasesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
-
-                    b.Navigation("Bookcases");
                 });
 
             modelBuilder.Entity("Database.Data.MobileApp.DetailBookMobilePage", b =>
@@ -433,8 +374,6 @@ namespace Database.Migrations
 
             modelBuilder.Entity("Database.Data.BookStructure.Book", b =>
                 {
-                    b.Navigation("BookBookcases");
-
                     b.Navigation("BookCollections");
 
                     b.Navigation("DetailBookMobilePages");
@@ -456,7 +395,7 @@ namespace Database.Migrations
 
             modelBuilder.Entity("Database.Data.MobileApp.Bookcase", b =>
                 {
-                    b.Navigation("BookBookcases");
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

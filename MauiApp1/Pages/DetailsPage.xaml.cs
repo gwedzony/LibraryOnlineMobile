@@ -1,44 +1,35 @@
-﻿using System.Diagnostics;
-using CommunityToolkit.Maui.Views;
-using CommunityToolkit.Mvvm.ComponentModel;
-using Database.Data.BookStructure;
-using MauiApp1.Pages.Shared;
-using MauiApp1.ViewModel;
-using Microsoft.EntityFrameworkCore.Query;
+﻿using MauiApp1.ViewModel;
+
 
 namespace MauiApp1.Pages;
 
 [QueryProperty(nameof(BookId), "BookId")]
 public partial class DetailsPage : ContentPage
 {
-    private int id;
+    private int _bookId;
     private DetailPageViewModel vm;
-    private BookcasesViewModel vmcase;
+    private BookcasesViewModel _bookcasesViewModel;
     public int BookId
     {
-        get => id;
+        get => _bookId;
         set
         {
-            id = value;
+            _bookId = value;
             OnPropertyChanged();
-            setProperPage(id);
+            setProperPage(_bookId);
         }
        
     }
-    public DetailsPage()
+    public DetailsPage(BookcasesViewModel bookcasesViewModel)
     {
         InitializeComponent();
+        _bookcasesViewModel = bookcasesViewModel;
         BindingContext = vm = new DetailPageViewModel();
-        vmcase = new BookcasesViewModel();
+        
     }
     private void setProperPage(int id)
     {
         vm.GetItem(id);
     }
-
-    private void Button_OnClicked(object? sender, EventArgs e)
-    {
-        var pops = new PickABookcase(vmcase);
-        this.ShowPopup(pops);
-    }
+    
 }

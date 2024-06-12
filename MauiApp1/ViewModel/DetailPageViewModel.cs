@@ -17,6 +17,9 @@ public partial class DetailPageViewModel: ObservableObject
     private string _author;
     private string _description;
     private int _currentBookId;
+    
+    
+    
     public string Image
     {
         get => _image;

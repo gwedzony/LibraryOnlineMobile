@@ -23,11 +23,15 @@ public static class MauiProgram
         }).UseMauiCommunityToolkit().UseMaterialMauiIcons();
 
         builder.Services.AddSingleton<MainPageViewModel>();
+        builder.Services.AddSingleton<BooksViewModel>();
         builder.Services.AddSingleton<HomePage>();
         
         builder.Services.AddTransient<DetailPageViewModel>();
         builder.Services.AddTransient<DetailsPage>();
-
+        
+        builder.Services.AddSingleton<BookcasesViewModel>();
+        builder.Services.AddSingleton<DetailsPage>();
+        
         builder.Services.AddSingleton<BookcasesViewModel>();
         builder.Services.AddSingleton<BookcasesPage>();
 

@@ -40,6 +40,8 @@ public class Book
     #region OneToOne
     public LatestMobileBooksCard? LatestMobileBooksCard { get; set; }
     
+    public int? BookCaseId { get; set; }
+    public Bookcase? Bookcase { get; set; }
     public DetailBookMobilePage? DetailBookMobilePages { get; set; }
     #endregion
 
@@ -47,9 +49,7 @@ public class Book
 
     public List<BookCollection> BookCollections { get; } = [];
     public List<Collection> Collections { get; } = [];
-    
-    public List<BookBookcases> BookBookcases { get; } = [];
-    public List<Bookcase> Bookcases { get; } = [];
+   
 
     #endregion
 

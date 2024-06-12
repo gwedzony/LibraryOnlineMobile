@@ -7,11 +7,11 @@ namespace MobileAPI.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LatestBooksCardController : ControllerBase
+    public class MobileBookCardsController : ControllerBase
     {
         private readonly DatabaseContext _context;
 
-        public LatestBooksCardController(DatabaseContext context)
+        public MobileBookCardsController(DatabaseContext context)
         {
             _context = context;
         }

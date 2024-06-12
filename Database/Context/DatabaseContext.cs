@@ -13,12 +13,13 @@ public class DatabaseContext() : DbContext
     public DbSet<Collection> Collections { get; set; }
     public DbSet<BookGenre> Genres { get; set; }
     public DbSet<BookCollection> BooksCollections { get; set; }
+    public DbSet<Bookcase> Bookcases { get; set; }
     public DbSet<DetailBookMobilePage> DetailBookMobilePages { get; set; }
     public DbSet<LatestMobileBooksCard> LatestMobileBooksCard { get; set; }
     public DbSet<MobileBooksAuthorCard> MobileBooksAuthorCard { get; set; }
-    
     public DbSet<RandomMCollectionCard> RandomMBooksCollectionCards{ get; set; }
 
+    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -53,10 +54,11 @@ public class DatabaseContext() : DbContext
         modelBuilder.Entity<Book>()
             .HasMany(b => b.Collections)
             .WithMany(c => c.Books);
+
         modelBuilder.Entity<Bookcase>()
             .HasMany(b => b.Books)
-            .WithMany(c => c.Bookcases);
-
+            .WithOne(b => b.Bookcase)
+            .HasForeignKey(b => b.BookCaseId);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

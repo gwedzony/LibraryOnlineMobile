@@ -54,15 +54,13 @@
                 <Label Text="{Binding Description}" TextColor="{StaticResource LightGray}" FontSize="14" Margin="5,0,0,10"/>
                 <BoxView Color="#0D0118" HeightRequest="1" Margin="0,5,0,10"/>
                 <Button Text="Dodaj do biblioteczki" BackgroundColor="#6e557c" Margin="0,20,0,0"
-                        Clicked="Button_OnClicked"
-                        >
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:BookcasesViewModel}}, Path=AddToBookcaseCommand}"/>
                     <Image.Shadow>
                         <Shadow
                             Brush="#0D0118"
                             Opacity="0.8"
                             />
                     </Image.Shadow>
-                </Button>
             </StackLayout>
         </Frame>
       

@@ -9,8 +9,6 @@ public class Bookcase
     public int Id { get; set; }
     
     public required string Name{ get; set; }
-    
-    public List<BookBookcases> BookBookcases{ get; } = [];
-    public List<Book> Books { get; } = [];
+    public List<Book> Books { get; } = new List<Book>();
 
 }

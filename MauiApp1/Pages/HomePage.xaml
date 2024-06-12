@@ -150,7 +150,7 @@
 
                                 <Frame Grid.RowSpan="3" CornerRadius="20" HasShadow="True" Padding="0">
                                     <Image Aspect="AspectFill"
-                                           Source="{Binding SmallCoverImg}"
+                                           Source="{Binding AuthorImage}"
                                            HorizontalOptions="FillAndExpand"
                                            VerticalOptions="FillAndExpand" />
                                 </Frame>

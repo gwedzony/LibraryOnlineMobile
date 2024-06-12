@@ -13,7 +13,7 @@ public partial class MainPageViewModel: ObservableObject
 {
     private ObservableCollection<MobileBookPreviewDTO> _mobileBooksPreviews;
     
-    private readonly BooksService _service;
+    private readonly MobileBookCardsService _service;
     public ObservableCollection<MobileBookPreviewDTO> MobileBookPreviews
     {
         get => _mobileBooksPreviews;
@@ -28,17 +28,18 @@ public partial class MainPageViewModel: ObservableObject
     }
     public MainPageViewModel()
     {
-        _service= new BooksService();
+        _service= new MobileBookCardsService();
         _mobileBooksPreviews = new ObservableCollection<MobileBookPreviewDTO>();
-        
+        Debug.WriteLine("Jestem w glownym vmie");
         GetPreviewsFromApi();
     }
 
    public async Task GetPreviewsFromApi()
     {
-        
+        Debug.WriteLine("Zaczynam pobierac dane..");
         List<LatestMobileBooksCard> list = await _service.GetItems();
         
+        Debug.WriteLine($"Lista pobraniu danych ma : {list.Count} liczbe kart");
         foreach (var item in list)
         {
        
@@ -49,7 +50,8 @@ public partial class MainPageViewModel: ObservableObject
                 BookDescription = item.Book.Description,
                 SmallCoverImg = item.Book.Image,
                 BookId = item.BookId,
-                Author = $"{item.Book.Author.Name} {item.Book.Author.Surname}"
+                Author = $"{item.Book.Author.Name} {item.Book.Author.Surname}",
+                AuthorImage = $"{item.Book.Author.PhotoUrl}"
             });
            
         }

@@ -14,6 +14,7 @@ namespace MauiApp1.Pages;
 public partial class BookcasesPage : ContentPage
 {
     private BookcasesViewModel vm;
+    
     public BookcasesPage(BookcasesViewModel bookcasevm)
     {
         InitializeComponent();

@@ -6,15 +6,13 @@
              x:Class="MauiApp1.Pages.BookcasesPage"
              BackgroundColor="#0D0118"
              Padding="0,0,0,60">
+             
     <ContentPage.BindingContext>
         <viewModel:BookcasesViewModel />
     </ContentPage.BindingContext>
     
-            <CollectionView ItemsSource="{Binding BookcasesDtos}" ItemSizingStrategy="MeasureFirstItem"> 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid RowDefinitions="35,5,Auto" Margin="15">
-                            <Label Grid.Row="0" TextColor="White" Text="{Binding Name }" FontSize="18"
+            <Grid RowDefinitions="35,5,Auto" Margin="15">
+                            <Label Grid.Row="0" TextColor="White" Text="{Binding BookcasesDtos.Name }" FontSize="18"
                                    Margin="0,15,0,0"  VerticalOptions="Start" />
                             <ImageButton Grid.Row="0" Source="{mi:Material Icon=Edit}" Scale="0.5"
                                        Clicked="ImageButton_OnClicked"
@@ -24,7 +22,7 @@
                                          VerticalOptions="Center" HorizontalOptions="End"   Margin="0,0,0,0" />
                             <BoxView Grid.Row="1" HeightRequest="1" BackgroundColor="White" Margin="0,5"  />
 
-                            <CollectionView  Grid.Row="2" ItemsSource="{Binding Book}" >
+                            <CollectionView  Grid.Row="2" ItemsSource="{Binding BookcasesDtos.Book}" >
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
                                         <Border Margin="15" BackgroundColor="#311b45" Stroke="#6e557c"
@@ -44,9 +42,9 @@
                                                 <!-- Kolumna 2: Tytuł książki i autor (jeden pod drugim) -->
                                                 <StackLayout Grid.Column="1" Orientation="Vertical"
                                                              VerticalOptions="Center">
-                                                    <Label TextColor="White" Text="Name" FontAttributes="Bold"
+                                                    <Label TextColor="White" Text="{Binding Title}" FontAttributes="Bold"
                                                            FontSize="16" Margin="10,0,0,0" />
-                                                    <Label Text="Author" FontAttributes="Italic" FontSize="14"
+                                                    <Label Text="{Binding Author}" FontAttributes="Italic" FontSize="14"
                                                            TextColor="Gray" Margin="10,0,0,0" />
                                                 </StackLayout>
 
@@ -74,7 +72,4 @@
                                 </CollectionView.ItemTemplate>
                             </CollectionView>
                         </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-</ContentPage>
+       </ContentPage>

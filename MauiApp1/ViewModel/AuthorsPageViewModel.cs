@@ -9,8 +9,7 @@ public class AuthorsPageViewModel: BaseViewModel
 {
     
     private ObservableCollection<AuthorsCardDTO> _authorsCards;
-    
-    private readonly AuthorsService _service;
+    private readonly AuthorsCardsService _cardsService;
     public ObservableCollection<AuthorsCardDTO> AuthorsCards
     {
         get => _authorsCards;
@@ -27,7 +26,7 @@ public class AuthorsPageViewModel: BaseViewModel
 
     public AuthorsPageViewModel()
     {
-        _service = new AuthorsService();
+        _cardsService = new AuthorsCardsService();
         _authorsCards = new ObservableCollection<AuthorsCardDTO>();
         GetAuthorsCardsFromApi();
     }
@@ -35,7 +34,7 @@ public class AuthorsPageViewModel: BaseViewModel
     private async Task GetAuthorsCardsFromApi()
     {
         
-        List<MobileBooksAuthorCard> list = await _service.GetItems();
+        List<MobileBooksAuthorCard> list = await _cardsService.GetItems();
 
         
         foreach (var item in list)

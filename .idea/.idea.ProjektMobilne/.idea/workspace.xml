@@ -22,37 +22,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="015bb8e0-2fa3-4b8c-ae4a-873512606eea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditNamePopup.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiApp1/Pages/Shared/PickABookcase.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiApp1/Pages/Shared/PickABookcase.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiApp1/Platforms/Android/Resources/xml/network_security_config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Fonts/MaterialIcons-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/hide.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/pencil2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/show.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/show2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Resources.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiApp1/helpers/MultipleCommandParameterConverter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/Migrations/20240611200637_m2.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/Migrations/DatabaseContextModelSnapshot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Model/DTO/BookDTO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Services/BookcaseService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Services/MobileBookCardsService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/ViewModel/BooksViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MobileAPI/Controller/BookcaseController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identifier.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjektMobilne/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjektMobilne/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiApp1/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/App.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiApp1/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/AppShell.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiApp1/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Context/DatabaseContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Context/DatabaseContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Data/BookStructure/Book.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Data/BookStructure/Book.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Data/MobileApp/BookBookcases.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Data/MobileApp/Bookcase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Data/MobileApp/Bookcase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Database.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Migrations/20240524171527_MobileBookcases.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Migrations/20240611200637_m2.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Migrations/20240524171527_MobileBookcases.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/MauiApp1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/MauiApp1.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiApp1/Model/DTO/BookcasesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Model/DTO/BookcasesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Model/DTO/MobileBookPreviewDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Model/DTO/MobileBookPreviewDTO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/BookcasesPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/BookcasesPage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/BookcasesPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/BookcasesPage.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/DetailsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/DetailsPage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/DetailsPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/DetailsPage.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/HomePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/HomePage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditPopup.xaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditPopup.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditNamePopup.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/ViewAll.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/ViewAll.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiApp1/Platforms/Android/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Platforms/Android/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditNamePopup.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditNamePopup.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/Shared/PickABookcase.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/Shared/PickABookcase.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/Shared/PickABookcase.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/Shared/PickABookcase.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Services/AuthorsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Services/AuthorsCardsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Services/BooksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Services/BooksService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/ViewModel/AuthorsPageViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/ViewModel/AuthorsPageViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/ViewModel/BookcasesViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/ViewModel/BookcasesViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/ViewModel/DetailPageViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/ViewModel/DetailPageViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/ViewModel/MainPageViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/ViewModel/MainPageViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MobileAPI/Controller/LatestBooksCardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MobileAPI/Controller/MobileBookCardsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MobileAPI/Controller/LatestMobileBooksAuthorCardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MobileAPI/Controller/AuthorsCardsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MobileAPI/MobileAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MobileAPI/MobileAPI.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +76,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88f837dd59d946d38476b3b0b746e5dec28a00/c1/e049869a/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8da99897df314432aa2ed19d1625fd6e3c600/0d/aed63cdd/MySQLDbContextOptionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e767540b5c1443d78865eb7de824c4ec71800/fd/af02afe7/MaterialIcons.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e8660a60781f4b459b92788cb138a077169dbb0/37/dce6d585/Runtime.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fcbf4f8a5ab54375abcfa46e8f5896b5168a0/1b/caf89b4b/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fcbf4f8a5ab54375abcfa46e8f5896b5168a0/99/e8718ff5/CallSiteRuntimeResolver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/20667a7d13175fe047b1dc57cf4319bc3761736f1972ace22871990d3aceda5/ShellNavigationState.cs" root0="SKIP_HIGHLIGHTING" />
@@ -89,6 +95,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a6484021df21c57cf65d7baeb1ce7cfaeb8fd36a2f893b343a1e3b70b4d4633a/MauiContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ad6f4b7578e75fb0bdcdb1e712a0637a534ecfa3829285da5bdf2b46524b72/RelayCommand{T}.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aee4b854d19b6824bad962dbd882ac34caae8a80281af0881b8eee60b7aadf4d/ShellUriHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bbe38c655b347698f66543a91526d6734be5771ed22d1d7a72aac3624d5/RelayCommandAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e7a45ba5c244bc823d3bc6e76c6bcffac13e939c295b1aafc962f56302350/ApplyPropertiesVisitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f212d83ed0494f92525874ac9e33378ff10b276a8f56731665d6df2fe1c1377/TapGestureRecognizer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f46d8257f4c1dc361b73ec7a2fa4d14a2b9f79568db1e74156c505c679420c2/AsyncRelayCommand.cs" root0="SKIP_HIGHLIGHTING" />
@@ -98,10 +105,8 @@
     <setting file="file://$PROJECT_DIR$/MauiApp1/Platforms/MacCatalyst/AppDelegate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MauiApp1/Platforms/MacCatalyst/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MauiApp1/Platforms/iOS/AppDelegate.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/MauiApp1/Platforms/iOS/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MauiApp1/Platforms/iOS/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MauiApp1/ViewModel/BookcasesViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/MauiApp1/bin/Debug/net8.0-android/MauiApp1.runtimeconfig.json" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/MobileAPI/Controller/LatestMobileBooksAuthorCardController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MobileAPI/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MobileAPI/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MobileAPI/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
@@ -135,10 +140,11 @@
   &quot;keyToString&quot;: {
     &quot;.NET Launch Settings Profile.MauiApp1: Windows Machine.executor&quot;: &quot;Run&quot;,
     &quot;.NET Launch Settings Profile.MobileAPI: IIS Express.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Launch Settings Profile.MobileAPI: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.MobileAPI: http.executor&quot;: &quot;Debug&quot;,
     &quot;.NET Launch Settings Profile.MobileAPI: https.executor&quot;: &quot;Run&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Android.MauiApp1.executor&quot;: &quot;Debug&quot;,
-    &quot;Device#class com.jetbrains.rider.run.multiPlatform.ios.devices.IOSSimulatorKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider#iOS: MauiApp1&quot;: &quot;iPhone 15 (iOS 17.4)&quot;,
+    &quot;Device#class com.jetbrains.rider.run.multiPlatform.ios.devices.IOSSimulatorKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider#iOS: MauiApp1&quot;: &quot;iPhone 15 (iOS 17.2)&quot;,
     &quot;DeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider&quot;: &quot;Simulator&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;UWP.MauiApp1.executor&quot;: &quot;Run&quot;,
@@ -156,6 +162,9 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
+    ],
     &quot;rider.external.source.directories&quot;: [
       &quot;/Users/grzesiek/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
       &quot;/Users/grzesiek/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
@@ -163,7 +172,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Android.MauiApp1">
+  <component name="RunManager" selected="iOS.MauiApp1">
     <configuration name="MauiApp1: Windows Machine" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MauiApp1/MauiApp1.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0-ios" />
@@ -346,6 +355,21 @@
       <workItem from="1716924747800" duration="2385000" />
       <workItem from="1716927409976" duration="1989000" />
       <workItem from="1716929843410" duration="124000" />
+      <workItem from="1716966985779" duration="70000" />
+      <workItem from="1716968359425" duration="237000" />
+      <workItem from="1717010692773" duration="892000" />
+      <workItem from="1717011675247" duration="999000" />
+      <workItem from="1717047919970" duration="4292000" />
+      <workItem from="1717083338713" duration="1566000" />
+      <workItem from="1717085791599" duration="7416000" />
+      <workItem from="1717219447722" duration="5320000" />
+      <workItem from="1717234359447" duration="3791000" />
+      <workItem from="1717437159604" duration="15000" />
+      <workItem from="1718132935126" duration="994000" />
+      <workItem from="1718133999798" duration="27000" />
+      <workItem from="1718134039706" duration="31000" />
+      <workItem from="1718134083879" duration="8693000" />
+      <workItem from="1718169600369" duration="1347000" />
     </task>
     <task id="LOCAL-00001" summary="Dodanie kodu str.Głownej">
       <option name="closed" value="true" />
@@ -375,6 +399,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Dodanie kodu str.Głownej" />
     <option name="LAST_COMMIT_MESSAGE" value="Dodanie kodu str.Głownej" />
