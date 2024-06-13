@@ -8,7 +8,7 @@ public class Bookcase
     [Key] 
     public int Id { get; set; }
     
-    public required string Name{ get; set; }
-    public List<Book> Books { get; } = new List<Book>();
+    public string? Name{ get; set; }
+    public ICollection<Book> Books { get; set; } = new List<Book>();
 
 }

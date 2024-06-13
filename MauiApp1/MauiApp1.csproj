@@ -73,6 +73,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Database\Database.csproj" />
+     
     </ItemGroup>
 
     <ItemGroup>

@@ -32,9 +32,6 @@ public static class MauiProgram
         builder.Services.AddSingleton<BookcasesViewModel>();
         builder.Services.AddSingleton<DetailsPage>();
         
-        builder.Services.AddSingleton<BookcasesViewModel>();
-        builder.Services.AddSingleton<BookcasesPage>();
-
         builder.Services.AddTransient<PickABookcase,BookcasesViewModel>() ;
         
        

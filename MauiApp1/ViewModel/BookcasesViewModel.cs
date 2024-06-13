@@ -13,69 +13,72 @@ namespace MauiApp1.ViewModel;
 
 public partial class BookcasesViewModel : ObservableObject
 {
-    private BookcasesDTO _bookcases;
+    private Bookcase? _bookcases;
     private readonly BookcaseService _bookcaseService;
     private readonly BooksService _booksService;
+    private string? _bookcaseName;
 
-    private int _idFromPrompt;
-
-    public int IdFromPrompt
+    public string? BookcaseName
     {
-        get => _idFromPrompt;
+        get => _bookcaseName;
         set
         {
-            _idFromPrompt = value;
-            OnPropertyChanged(nameof(IdFromPrompt));
-            Debug.WriteLine($"IdFromPrompt: {_idFromPrompt}");
+            _bookcaseName = value;
+            OnPropertyChanged();
         }
     }
-
-    public BookcasesDTO BookcasesDtos
+    public Bookcase? Bookcases
     {
         get => _bookcases;
         set
         {
-            _bookcases = value;
-            OnPropertyChanged(nameof(BookcasesDtos));
+            if (_bookcases != value)
+            {
+                _bookcases = value;
+                OnPropertyChanged();
+                GetItems();
+            }
         }
     }
 
     public BookcasesViewModel()
     {
-        _bookcases = new BookcasesDTO();
         _bookcaseService = new BookcaseService();
         _booksService = new BooksService();
+        _bookcases = new Bookcase();
         GetItems();
     }
 
     private async Task GetItems()
     {
-        var bookcase = await _bookcaseService.GetItem();
-        if (bookcase != null)
-        {
-            _bookcases.Id = bookcase.Id;
-            _bookcases.Name = bookcase.Name;
-            _bookcases.Book =  new ObservableCollection<Book>(bookcase.Books);
-        }
+         var test  = await _bookcaseService.GetItem();
+        _bookcases.Id = test.Id;
+        _bookcases.Name = test.Name;
+        _bookcases.Books = test.Books;
     }
 
-   [RelayCommand]
-   private void AddToBookcase()
+    [RelayCommand]
+    private async Task AddToBookcase(int id)
     {
-        Debug.WriteLine($"Jestem i chce dodawac id książki?");
-        
-        var bookList = new ObservableCollection<Book>(_booksService.GetItems().Result);
-        
-        foreach (var item in bookList)
+        var list = await _booksService.GetItems();
+
+        foreach (var item in list)
         {
-            if (item.Id == 1)
+            if (item.Id == id)
             {
-                _bookcases.Book.Add(item);    
+               
+               if(!_bookcases.Books.Contains(_bookcases.Books.FirstOrDefault(x=>x.Id == id)))
+               {
+                   _bookcases.Books.Add(item);
+                   await _bookcaseService.SaveToBookcaseAsync(_bookcases);
+               }
             }
-            else
-            {
-                Debug.WriteLine("book is empty list");
-            }
-        }     
+        }
+
+        foreach (var book in _bookcases.Books)
+        {
+            Debug.WriteLine(book.Title);
+        }
+        
     }
 }

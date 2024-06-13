@@ -2,10 +2,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
+             xmlns:local="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Pages.DetailsPage"
              BackgroundColor="#0D0118"
              >
-
+ 
     <Grid Margin="5">
 
         <Grid.RowDefinitions>
@@ -54,7 +55,10 @@
                 <Label Text="{Binding Description}" TextColor="{StaticResource LightGray}" FontSize="14" Margin="5,0,0,10"/>
                 <BoxView Color="#0D0118" HeightRequest="1" Margin="0,5,0,10"/>
                 <Button Text="Dodaj do biblioteczki" BackgroundColor="#6e557c" Margin="0,20,0,0"
-                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:BookcasesViewModel}}, Path=AddToBookcaseCommand}"/>
+                        Command="{Binding Source={StaticResource BookcasesViewModel},Path=AddToBookcaseCommand}"
+                        CommandParameter="{Binding CurrentBookId}"
+                        />
+                
                     <Image.Shadow>
                         <Shadow
                             Brush="#0D0118"

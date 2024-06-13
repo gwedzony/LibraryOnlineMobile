@@ -12,7 +12,7 @@
     </ContentPage.BindingContext>
     
             <Grid RowDefinitions="35,5,Auto" Margin="15">
-                            <Label Grid.Row="0" TextColor="White" Text="{Binding BookcasesDtos.Name }" FontSize="18"
+                            <Label Grid.Row="0" TextColor="White" Text="{Binding BookcaseName }" FontSize="18"
                                    Margin="0,15,0,0"  VerticalOptions="Start" />
                             <ImageButton Grid.Row="0" Source="{mi:Material Icon=Edit}" Scale="0.5"
                                        Clicked="ImageButton_OnClicked"
@@ -22,7 +22,7 @@
                                          VerticalOptions="Center" HorizontalOptions="End"   Margin="0,0,0,0" />
                             <BoxView Grid.Row="1" HeightRequest="1" BackgroundColor="White" Margin="0,5"  />
 
-                            <CollectionView  Grid.Row="2" ItemsSource="{Binding BookcasesDtos.Book}" >
+                            <CollectionView  Grid.Row="2" ItemsSource="{Binding Bookcases.Books}" >
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
                                         <Border Margin="15" BackgroundColor="#311b45" Stroke="#6e557c"
@@ -36,7 +36,7 @@
                                                 <Frame BorderColor="Green" Padding="0" Margin="0,0,10,0"
                                                        HorizontalOptions="Start" VerticalOptions="Center"
                                                        WidthRequest="60" HeightRequest="60">
-                                                    <Image Source="okladka.jpg" Aspect="AspectFill" />
+                                                    <Image Source="{Binding Image}" Aspect="AspectFill" />
                                                 </Frame>
 
                                                 <!-- Kolumna 2: Tytuł książki i autor (jeden pod drugim) -->
@@ -54,18 +54,8 @@
 
                                                 <!-- Kolumna 4: Przycisk usuwania -->
                                                 <ImageButton Grid.Column="3" Source="{mi:Material Icon=DeleteForever}" 
-                                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:BookcasesViewModel}}, Path=DeleteCommand}"
                                                              VerticalOptions="Center" Scale="0.5" >
-                                                    <ImageButton.CommandParameter>
-                                                        <MultiBinding Converter="{StaticResource MultipleCommand}">
-                                                            <Binding Path="Id"
-                                                                     />
-                                                            <Binding 
-                                                                Source="{RelativeSource AncestorType={x:Type CollectionView}}" 
-                                                                 Path="BindingContext.Id"/>
-                                                        </MultiBinding>
-                                                    </ImageButton.CommandParameter>
-                                                </ImageButton>
+                                                    </ImageButton>
                                             </Grid>
                                         </Border>
                                     </DataTemplate>

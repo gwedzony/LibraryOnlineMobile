@@ -84,8 +84,6 @@ public partial class DetailPageViewModel: ObservableObject
         Author = $"{item.Book.Author.Name} {item.Book.Author.Surname}";
         Description = item.Book.Description;
     }
-    
-   
-    
+
    
 }

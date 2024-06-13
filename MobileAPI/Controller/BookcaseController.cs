@@ -25,7 +25,13 @@ namespace MobileAPI.Controller
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Bookcase>>> GetBookcases()
         {
-            return await _context.Bookcases.Include(b=>b.Books).ToListAsync();
+            return await _context.Bookcases
+                .Include(b=>b.Books)
+                .ThenInclude(g=>g.BookGenre)
+                .Include(b=>b.Books)
+                .ThenInclude(a=>a.Author)
+                .Include(b=>b.Books)
+                .ToListAsync();
         }
 
         // GET: api/Bookcase/5
@@ -56,6 +62,15 @@ namespace MobileAPI.Controller
 
             try
             {
+                foreach (var book in bookcase.Books)
+                {
+                    if (_context.Books.Local.All(b => b.Id != book.Id))
+                    {
+                        _context.Books.Attach(book);
+                    }
+                    _context.Entry(book).State = EntityState.Modified;
+                }
+                
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

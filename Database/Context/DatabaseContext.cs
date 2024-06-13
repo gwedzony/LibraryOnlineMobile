@@ -1,6 +1,7 @@
 using Database.Data.BookStructure;
 using Database.Data.MobileApp;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MySql.EntityFrameworkCore.Extensions;
 
 namespace Database.Context;
@@ -51,6 +52,7 @@ public class DatabaseContext() : DbContext
         modelBuilder.Entity<Book>()
             .HasOne(b => b.Author)
             .WithMany(a => a.Books);
+        
         modelBuilder.Entity<Book>()
             .HasMany(b => b.Collections)
             .WithMany(c => c.Books);
@@ -65,6 +67,6 @@ public class DatabaseContext() : DbContext
     {
        //optionsBuilder.UseSqlite(@"Data Source=/Users/grzesiek/RiderProjects/ProjektMobilne/Database/identifier.sqlite");
        optionsBuilder.UseMySQL(
-    "server=mysql-229035fc-mkgw-projektmobilki.h.aivencloud.com;Port=13237;uid=avnadmin;pwd=AVNS_WhD37An18x2d4xxrYYY;database=db;SslMode=Required");
+    "server=mysql-229035fc-mkgw-projektmobilki.h.aivencloud.com;Port=13237;uid=avnadmin;pwd=AVNS_WhD37An18x2d4xxrYYY;database=db;SslMode=Required").LogTo(Console.WriteLine, LogLevel.Information);
     }
 }

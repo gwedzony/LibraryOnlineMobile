@@ -25,7 +25,14 @@ namespace MobileAPI.Controller
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
         {
-            return await _context.Books.ToListAsync();
+            return await _context.Books
+                .Include(b=>b.Author)
+                .Include(b=>b.Collections)
+                .Include(b=>b.BookGenre)
+                .Include(b=>b.LatestMobileBooksCard)
+                .Include(b=>b.DetailBookMobilePages)
+                .Include(b=>b.BookCollections)
+                .ToListAsync();
         }
 
         // GET: api/Books/5
