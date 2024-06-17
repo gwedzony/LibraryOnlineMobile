@@ -11,7 +11,6 @@ namespace MauiApp1.ViewModel;
 public partial class DetailPageViewModel: ObservableObject
 {
    private readonly DetailPageService _service;
-   private BookcasesViewModel _bookcasevm;
     private string _image;
     private string _title;
     private string _author;

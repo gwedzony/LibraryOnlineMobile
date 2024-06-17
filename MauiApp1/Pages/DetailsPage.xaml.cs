@@ -8,7 +8,6 @@ public partial class DetailsPage : ContentPage
 {
     private int _bookId;
     private DetailPageViewModel vm;
-    private BookcasesViewModel _bookcasesViewModel;
     public int BookId
     {
         get => _bookId;
@@ -20,10 +19,9 @@ public partial class DetailsPage : ContentPage
         }
        
     }
-    public DetailsPage(BookcasesViewModel bookcasesViewModel)
+    public DetailsPage()
     {
         InitializeComponent();
-        _bookcasesViewModel = bookcasesViewModel;
         BindingContext = vm = new DetailPageViewModel();
         
     }

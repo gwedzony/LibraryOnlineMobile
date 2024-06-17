@@ -5,20 +5,17 @@
              xmlns:viewModel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Pages.BookcasesPage"
              BackgroundColor="#0D0118"
-             Padding="0,0,0,60">
+             Padding="0,0,0,60"
+             BindingContext="{StaticResource BookcasesViewModel}">
              
-    <ContentPage.BindingContext>
-        <viewModel:BookcasesViewModel />
-    </ContentPage.BindingContext>
+  
     
             <Grid RowDefinitions="35,5,Auto" Margin="15">
-                            <Label Grid.Row="0" TextColor="White" Text="{Binding BookcaseName }" FontSize="18"
+                            <Label Grid.Row="0" TextColor="White" Text="{Binding Bookcases.Name}" FontSize="18"
                                    Margin="0,15,0,0"  VerticalOptions="Start" />
+                
                             <ImageButton Grid.Row="0" Source="{mi:Material Icon=Edit}" Scale="0.5"
-                                       Clicked="ImageButton_OnClicked"
-                                       VerticalOptions="Center" HorizontalOptions="End" 
-                                       Margin="0,0,25,0" />
-                            <ImageButton Grid.Row="0" Source="{mi:Material Icon=Visibility}" Scale="0.5"
+                                         Clicked="ImageButton_OnClicked"
                                          VerticalOptions="Center" HorizontalOptions="End"   Margin="0,0,0,0" />
                             <BoxView Grid.Row="1" HeightRequest="1" BackgroundColor="White" Margin="0,5"  />
 
@@ -44,17 +41,19 @@
                                                              VerticalOptions="Center">
                                                     <Label TextColor="White" Text="{Binding Title}" FontAttributes="Bold"
                                                            FontSize="16" Margin="10,0,0,0" />
-                                                    <Label Text="{Binding Author}" FontAttributes="Italic" FontSize="14"
+                                                    <Label Text="{Binding Author.Surname}" FontAttributes="Italic" FontSize="14"
                                                            TextColor="Gray" Margin="10,0,0,0" />
                                                 </StackLayout>
 
                                                 <!-- Kolumna 3: Dodatkowy przycisk -->
-                                                <ImageButton Grid.Column="2" Source="{mi:Material Icon=PlayCircle}" 
+                                                <ImageButton Grid.Column="2" Source="{mi:Material Icon=PlayArrow}" 
                                                              Scale="0.5" />
 
                                                 <!-- Kolumna 4: Przycisk usuwania -->
                                                 <ImageButton Grid.Column="3" Source="{mi:Material Icon=DeleteForever}" 
-                                                             VerticalOptions="Center" Scale="0.5" >
+                                                             VerticalOptions="Center" Scale="0.5" 
+                                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:BookcasesViewModel}},Path=DeleteFromBookcaseCommand}"
+                                                             CommandParameter="{Binding Id}">
                                                     </ImageButton>
                                             </Grid>
                                         </Border>

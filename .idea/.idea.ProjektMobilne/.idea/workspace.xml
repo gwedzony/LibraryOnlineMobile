@@ -22,27 +22,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="015bb8e0-2fa3-4b8c-ae4a-873512606eea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Database/Migrations/20240612200707_m3.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Database/Migrations/20240612200707_m3.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Database/Migrations/20240612211949_m4.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Database/Migrations/20240612211949_m4.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/Authors/agatha.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/Authors/brown.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/Authors/gladwell.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/Authors/green.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/Authors/isaac.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/Authors/jane.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/Authors/janek.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/Authors/ken.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/Authors/miller.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/Authors/stephen.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/davinci.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/death.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/identifier.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/outliers.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/pillars.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/pride.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/thefault.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjektMobilne/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjektMobilne/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/Context/DatabaseContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Context/DatabaseContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/Data/MobileApp/Bookcase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Data/MobileApp/Bookcase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/Migrations/DatabaseContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Database/Migrations/DatabaseContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiApp1/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/App.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/MauiApp1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/MauiApp1.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiApp1/Model/DTO/BookcasesDTO.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/BookcasesPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/BookcasesPage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/BookcasesPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/BookcasesPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/DetailsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/DetailsPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/DetailsPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/DetailsPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditNamePopup.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditNamePopup.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditNamePopup.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Pages/Shared/EditNamePopup.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/Shared/PickABookcase.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Pages/Shared/PickABookcase.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/dotnet_bot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/editing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/hide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/newest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladka.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/kafka.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/podreczna.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/proces.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/rok.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/samotnosc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/okladki/sawyer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/pencil2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/pobrane.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/show.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/show2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Resources/Images/writer.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/Services/BookcaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Services/BookcaseService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiApp1/Services/BooksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/Services/BooksService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/ViewModel/BookcasesViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/ViewModel/BookcasesViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiApp1/ViewModel/DetailPageViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiApp1/ViewModel/DetailPageViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MobileAPI/Controller/BookcaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MobileAPI/Controller/BookcaseController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MobileAPI/Controller/BooksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MobileAPI/Controller/BooksController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MobileAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MobileAPI/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +97,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83255963010b4b4fb6f53a3fe46ff985a3108/46/4a327c01/HttpClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83255963010b4b4fb6f53a3fe46ff985a3108/5b/2f99d364/HttpHeaders.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83255963010b4b4fb6f53a3fe46ff985a3108/cd/b6ae39f7/HttpMethod.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88f837dd59d946d38476b3b0b746e5dec28a00/4a/6ac71f47/CancellationToken.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88f837dd59d946d38476b3b0b746e5dec28a00/93/dac505af/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/88f837dd59d946d38476b3b0b746e5dec28a00/c1/e049869a/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8da99897df314432aa2ed19d1625fd6e3c600/0d/aed63cdd/MySQLDbContextOptionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e17fe1bc278f4a97bc335d36df98f8d918ea0/34/454f01a3/Uri.cs" root0="SKIP_HIGHLIGHTING" />
@@ -79,22 +113,30 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3835a029c87fc9a33c7e04971dacef7496dca7f20b342beb8c675ff5f7cbf/IUriImageSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3c10228e75e6392b5da27d27f935db3782ae18d4ff51814072413a43eee05a1c/ContentPage.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3e432edeee9469b7cfdb81d6e6bd278cf57afb9e54ab75649b8bb2f52cdde69/ObservableObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/433db47e73b3c298a02dccda263a1fed8ccc3863f846a561ebdeec2ad5f6d3e/CreateValuesVisitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/44b6ccabcbb29e8169661f6e9f498be14242d8ac5c7e5f4fa9919bcd0c4042/XamlLoader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/50fec87b2341bd6dc595a1cd51252a1489c153b29481d65839e5d92d95f51c/LifecycleEventServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5c2b9c4c6965619e3d75887f4866f4abec6bd248961c9d6595e99591d4f9db1/ShellNavigationManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5f84b7f4620f1821afea7c75929f131ba7dd27454fea5726ba19ad4fb4564f/MauiUIApplicationDelegate.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/73822a5ba370669d54d2a09f8c8ff7ef3fb69be141ba2830dad8c1e325c91125/Routing.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e29f976629ead739ccfe2d7ad7d4a4187f8260407feded88302991bce4a8/BindingExpression.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8f6cf0a6ba4a4fef88bfa9a118b96aa47bfd0d78820e6f18145aa19d41f3827/LifecycleEventService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9884abf4d841c321b897095932afe81de7bcc7de325ced8cccc7a4ab5085b1/MultiBinding.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9a3d39f6287b86888cd089e7ae88dc3b2bdac08736e0baa5bf9ac36187e/SetterSpecificity.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a6484021df21c57cf65d7baeb1ce7cfaeb8fd36a2f893b343a1e3b70b4d4633a/MauiContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ad6f4b7578e75fb0bdcdb1e712a0637a534ecfa3829285da5bdf2b46524b72/RelayCommand{T}.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aee4b854d19b6824bad962dbd882ac34caae8a80281af0881b8eee60b7aadf4d/ShellUriHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b7205f1f683ae589123d71382847bcb1b2b304f1a254c5f9912bed42e327c49/XamlNode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bbe38c655b347698f66543a91526d6734be5771ed22d1d7a72aac3624d5/RelayCommandAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bed429c4a5b521274565f54527bf631ced45db2fe2fa3030418de9e798f79/ButtonElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cc9fbc966848632e3fe6f697a5b8ce899545cb6/App.xaml.sg.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cfe627784a6047eeb69eb3f1eed9f1c0f32d92b86af82fbb942bea8fe56e62/AsyncRelayCommand{T}.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e7a45ba5c244bc823d3bc6e76c6bcffac13e939c295b1aafc962f56302350/ApplyPropertiesVisitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f212d83ed0494f92525874ac9e33378ff10b276a8f56731665d6df2fe1c1377/TapGestureRecognizer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f46d8257f4c1dc361b73ec7a2fa4d14a2b9f79568db1e74156c505c679420c2/AsyncRelayCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f5d4e213f8bdaa7dc5f131e49fdeb24e724cceee9c485a8d6beec94cceb94c4/SetterSpecificityList.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f65cca973a1a95ebd9d271cfb91c208edd6fa8fbe6970f5c147a86249bc3/Window.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f83720d513c47b17e8acdcf59a35ef33a0c2e6a7fae5be4a92dfba6f4a65d0/Button.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MauiApp1/Platforms/Android/MainActivity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MauiApp1/Platforms/MacCatalyst/AppDelegate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MauiApp1/Platforms/MacCatalyst/Program.cs" root0="SKIP_HIGHLIGHTING" />
@@ -366,7 +408,11 @@
       <workItem from="1718169600369" duration="1448000" />
       <workItem from="1718209861292" duration="11214000" />
       <workItem from="1718221746219" duration="10883000" />
-      <workItem from="1718256605686" duration="3257000" />
+      <workItem from="1718256605686" duration="3487000" />
+      <workItem from="1718300097911" duration="16241000" />
+      <workItem from="1718341417326" duration="1699000" />
+      <workItem from="1718556705692" duration="10290000" />
+      <workItem from="1718597810736" duration="3151000" />
     </task>
     <task id="LOCAL-00001" summary="Dodanie kodu str.Głownej">
       <option name="closed" value="true" />
@@ -404,9 +450,17 @@
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="Type#Database.Data.MobileApp.Bookcase" memberName="Books" />
+        <PinnedItemInfo parentTag="Frame#MauiApp1.ViewModel.BookcasesViewModel.get_Bookcases" memberName="this" />
         <PinnedItemInfo parentTag="Type#System.Uri" memberName="PathAndQuery" />
+        <PinnedItemInfo parentTag="Type#MauiApp1.ViewModel.BookcasesViewModel" memberName="Bookcases" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="XamarinIOSProject">
+        <watch expression="this" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

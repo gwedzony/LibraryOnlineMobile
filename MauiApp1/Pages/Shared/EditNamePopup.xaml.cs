@@ -12,12 +12,11 @@ namespace MauiApp1.Pages.Shared;
 
 public partial class EditNamePopup : Popup
 {
-    private BookcasesViewModel vm;
-    public EditNamePopup(BookcasesViewModel bookcasevm)
+    
+    public EditNamePopup()
     {
         InitializeComponent();
-        vm = bookcasevm;
-        BindingContext = vm;
+      
     }
 
    private void Button_OnClicked(object? sender, EventArgs e) => Close();

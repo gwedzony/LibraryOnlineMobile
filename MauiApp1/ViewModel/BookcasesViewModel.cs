@@ -11,74 +11,82 @@ using BookStructure_Book = Database.Data.BookStructure.Book;
 
 namespace MauiApp1.ViewModel;
 
-public partial class BookcasesViewModel : ObservableObject
+sealed partial class BookcasesViewModel : ObservableObject
 {
     private Bookcase? _bookcases;
     private readonly BookcaseService _bookcaseService;
     private readonly BooksService _booksService;
-    private string? _bookcaseName;
+    private string _name;
 
-    public string? BookcaseName
+    public string Name
     {
-        get => _bookcaseName;
-        set
-        {
-            _bookcaseName = value;
-            OnPropertyChanged();
-        }
+        get => _name;
+        set => SetProperty(ref _name, value);
     }
     public Bookcase? Bookcases
     {
         get => _bookcases;
-        set
-        {
-            if (_bookcases != value)
-            {
-                _bookcases = value;
-                OnPropertyChanged();
-                GetItems();
-            }
-        }
+        set => SetProperty(ref _bookcases, value);
     }
 
     public BookcasesViewModel()
     {
+        _bookcases = new Bookcase();
         _bookcaseService = new BookcaseService();
         _booksService = new BooksService();
-        _bookcases = new Bookcase();
         GetItems();
     }
 
+    [RelayCommand]
     private async Task GetItems()
     {
-         var test  = await _bookcaseService.GetItem();
-        _bookcases.Id = test.Id;
-        _bookcases.Name = test.Name;
-        _bookcases.Books = test.Books;
+        
+        Debug.WriteLine($"Liczba ksiazek w VM GetItems: {_bookcases.Books.Count}");
+        Bookcases = await _bookcaseService.GetItem();
     }
 
+    [RelayCommand]
+    private async Task EditBookcaseName()
+    {
+        if (_name != null)
+        {
+            _bookcases.Name = _name;
+            await _bookcaseService.SaveToBookcaseAsync(_bookcases);
+            await GetItems();
+        }
+      
+    }
     [RelayCommand]
     private async Task AddToBookcase(int id)
     {
         var list = await _booksService.GetItems();
 
+        Debug.WriteLine($"Current books in Bookcase Adding: {Bookcases.Books.Count}");
+
         foreach (var item in list)
         {
             if (item.Id == id)
             {
-               
-               if(!_bookcases.Books.Contains(_bookcases.Books.FirstOrDefault(x=>x.Id == id)))
-               {
-                   _bookcases.Books.Add(item);
-                   await _bookcaseService.SaveToBookcaseAsync(_bookcases);
-               }
+                if (!Bookcases.Books.Contains(Bookcases.Books.FirstOrDefault(x => x.Id == id)))
+                {
+                    Bookcases.Books.Add(item);
+                    await _bookcaseService.SaveToBookcaseAsync(Bookcases);
+                    await GetItems();
+                }
             }
         }
+    }
 
-        foreach (var book in _bookcases.Books)
-        {
-            Debug.WriteLine(book.Title);
-        }
-        
+    [RelayCommand]
+    private async Task DeleteFromBookcase(int id)
+    {
+        var book = _bookcases.Books.First(x => x.Id == id);
+        Debug.WriteLine($"Current books in Bookcase Deleting {Bookcases.Books.Count}");
+
+        _bookcases.Books.Remove(book);
+        Debug.WriteLine($"Current books in Bookcase after remove {Bookcases.Books.Count}");
+        await _bookcaseService.DeleteTodoItemAsync(id);
+        await GetItems();
+        Debug.WriteLine($"Current books in Bookcase after GETITEMS {Bookcases.Books.Count}");
     }
 }

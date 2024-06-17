@@ -5,6 +5,7 @@ using MauiIcons.FontAwesome;
 using CommunityToolkit.Maui;
 using MauiApp1.Pages;
 using MauiApp1.Pages.Shared;
+using MauiApp1.Services;
 using MauiApp1.ViewModel;
 using MauiIcons.Material;
 using Microsoft.Maui.Controls.Hosting;
@@ -25,14 +26,10 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPageViewModel>();
         builder.Services.AddSingleton<BooksViewModel>();
         builder.Services.AddSingleton<HomePage>();
-        
+        builder.Services.AddSingleton<BookcasesViewModel>();
         builder.Services.AddTransient<DetailPageViewModel>();
         builder.Services.AddTransient<DetailsPage>();
-        
-        builder.Services.AddSingleton<BookcasesViewModel>();
-        builder.Services.AddSingleton<DetailsPage>();
-        
-        builder.Services.AddTransient<PickABookcase,BookcasesViewModel>() ;
+       
         
        
         

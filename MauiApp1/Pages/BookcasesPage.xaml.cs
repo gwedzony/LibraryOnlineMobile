@@ -14,17 +14,15 @@ namespace MauiApp1.Pages;
 public partial class BookcasesPage : ContentPage
 {
   
-    
     public BookcasesPage()
     {
         InitializeComponent();
     }
 
-    private async void ImageButton_OnClicked(object? sender, EventArgs e)
+
+    private void ImageButton_OnClicked(object? sender, EventArgs e)
     {
-       
-
+        Popup pops = new EditNamePopup();
+        this.ShowPopup(pops);
     }
-
-    
 }

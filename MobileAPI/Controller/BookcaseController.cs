@@ -38,7 +38,13 @@ namespace MobileAPI.Controller
         [HttpGet("{id}")]
         public async Task<ActionResult<Bookcase>> GetBookcase(int id)
         {
-            var bookcase = await _context.Bookcases.FindAsync(id);
+            var bookcase = await _context.Bookcases
+                .Include(b=>b.Books)
+                .ThenInclude(g=>g.BookGenre)
+                .Include(b=>b.Books)
+                .ThenInclude(a=>a.Author)
+                .Include(b=>b.Books)
+                .FirstAsync(b => b.Id == id);
 
             if (bookcase == null)
             {
@@ -103,14 +109,30 @@ namespace MobileAPI.Controller
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBookcase(int id)
         {
-            var bookcase = await _context.Bookcases.FindAsync(id);
-            if (bookcase == null)
+            var books = _context.Books;
+            
+            if (books == null)
             {
                 return NotFound();
             }
 
-            _context.Bookcases.Remove(bookcase);
-            await _context.SaveChangesAsync();
+            var book = await books.FirstOrDefaultAsync(b=>b.Id == id);
+
+            var bookcases = _context.Bookcases.Include(b => b.Books);
+
+            if (bookcases != null && book != null)
+            {
+                foreach (var bc in bookcases)
+                {
+                    if (bc.Id == 1)
+                    {
+                        bc.Books.Remove(book);
+                    }
+                }
+                await _context.SaveChangesAsync();
+            }
+
+          
 
             return NoContent();
         }
