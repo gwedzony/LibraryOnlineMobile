@@ -10,21 +10,41 @@
 
     <toolkit:Popup.Resources>
         <Style TargetType="{x:Type popups:EditNamePopup}">
-            <Setter Property="Size" Value="300,170" />
+            <Setter Property="Size" Value="300,200" />
             <Setter Property="HorizontalOptions" Value="Center" />
-            <Setter Property="VerticalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="Center" />
             <Setter Property="CanBeDismissedByTappingOutsideOfPopup" Value="True" />
         </Style>
     </toolkit:Popup.Resources>
     
+    <Frame BackgroundColor="#1E1E1E"
+           CornerRadius="20"
+           Padding="20"
+           HasShadow="True"
+           HorizontalOptions="Center"
+           VerticalOptions="Center">
+        <StackLayout Spacing="15">
+            <Label Text="Edytuj nazwę"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+            <Entry Text="{Binding Name}"
+                   Placeholder="Wprowadź nazwę"
+                   TextColor="White"
+                   PlaceholderColor="#9D9D9D"
+                   BackgroundColor="#333333"
+                   HeightRequest="40"
+                   Margin="0,10,0,0"
+                   HorizontalOptions="FillAndExpand"/>
+            <Button Text="Zapisz" 
+                    Command="{Binding EditBookcaseNameCommand}"
+                    BackgroundColor="#6E557C"
+                    TextColor="White"
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+    </Frame>
     
-    <StackLayout>
-        <Entry Text="{Binding Name}"></Entry>
-        <Button Text="Zapisz" 
-                Command="{Binding EditBookcaseNameCommand}"
-                Clicked="Button_OnClicked"
-        />
-
-    </StackLayout>
-
 </toolkit:Popup>

@@ -60,7 +60,7 @@ public partial class MainPageViewModel: ObservableObject
     [RelayCommand]
     private async Task Tap(int id)
     {
-        Debug.WriteLine("tap tap tap");
+       
        await Shell.Current.GoToAsync($"DetailsPage?BookId={id}");
     }
 }
