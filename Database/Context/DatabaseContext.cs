@@ -67,6 +67,6 @@ public class DatabaseContext() : DbContext
     {
        //optionsBuilder.UseSqlite(@"Data Source=/Users/grzesiek/RiderProjects/ProjektMobilne/Database/identifier.sqlite");
        optionsBuilder.UseMySQL(
-    "server=mysql-229035fc-mkgw-projektmobilki.h.aivencloud.com;Port=13237;uid=avnadmin;pwd=AVNS_WhD37An18x2d4xxrYYY;database=db;SslMode=Required").LogTo(Console.WriteLine, LogLevel.Information);
+    "adress").LogTo(Console.WriteLine, LogLevel.Information);
     }
 }
